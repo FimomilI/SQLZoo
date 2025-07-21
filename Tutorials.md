@@ -8,7 +8,7 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 ## Table of Contents
 
 - [0 SELECT basics (last edited 20/07/2025)](#0-select-basics-last-edited-20072025)
-- [1 SELECT name](#1-select-name)
+- [1 SELECT name (last edited 21/07/2025)](#1-select-name-last-edited-21072025)
 - [2 SELECT from WORLD Tutorial (last edited 20/07/2025)](#2-select-from-world-tutorial-last-edited-20072025)
 - [3 SELECT from Nobel (last edited 20/07/2025)](#3-select-from-nobel-last-edited-20072025)
 - [4 SELECT within SELECT Tutorial (last edited 20/07/2025)](#4-select-within-select-tutorial-last-edited-20072025)
@@ -88,140 +88,181 @@ SELECT name, area
 
 
 
-## 1 SELECT name
+## 1 SELECT name (last edited 21/07/2025)
 
 
 <!-- omit in toc -->
-### 1.
+### 1. You can use WHERE name LIKE 'B%' to find the countries that start with "B"
+
+- The % is a wild-card it can match any characters
+
+**Find the country that start with Y**
+
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE 'Y%'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 2.
+### 2. _Find the countries that end with y_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '%y'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 3.
+### 3. Luxembourg has an _x_ - so does one other country. List them both. _Find the countries that contain the letter x_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '%x%'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 4.
+### 4. Iceland, Switzerland end with _land_ - but are there others? _Find the countries that end with land_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '%land'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 5.
+### 5. Columbia starts with a _C_ and ends with _ia_ - there are two more like this. _Find the countries that start with C and end with ia_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE 'C%ia'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 6.
+### 6. Greece has a double _e_ - who has a double _o_? _Find the country that has oo in the name_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '%oo%'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 7.
+### 7. Bahamas has three _a_ - who else? _Find the countries that have three or more a in the name_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '%a%a%a%'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 8.
+### 8. India and Angola have an _n_ as the second character. You can use the underscore as a single character wildcard. _Find the countries that have "t" as the second character_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name LIKE '_t%'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 9.
+### 9. Lesotho and Moldova both have two o characters separated by two other characters. _Find the countries that have two "o" characters separated by two others._
 
 ```SQL
+SELECT name
+  FROM world
+ WHERE name LIKE '%o__o%'
+```
 
+> [!NOTE]
+> This query matches *characters* and not *letters* because "_" can be a whitespace (or any other character).
+
+
+---
+
+<!-- omit in toc -->
+### 10. uba and Togo have four characters names. _Find the countries that have exactly four characters_
+
+```SQL
+SELECT name
+  FROM world
+ WHERE name LIKE '____'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 10.
+### 11. The capital of _Luxembourg_ is _Luxembourg_. Show all the countries where the capital is the same as the name of the country. _Find the country where the name is the capital city_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE name = capital
 ```
 
 ---
 
 <!-- omit in toc -->
-### 11.
+### 12. The capital of _Mexico_ is _Mexico City_. Show all the countries where the capital has the country together with the word "City". _Find the country where the capital is the country plus "City"_
 
 ```SQL
-
+SELECT name
+  FROM world
+ WHERE capital = CONCAT(name, ' City')
 ```
 
 ---
 
 <!-- omit in toc -->
-### 12.
+### 13. _Find the capital and the name where the capital includes the name of the country_
 
 ```SQL
-
+SELECT capital, name
+  FROM world
+ WHERE capital LIKE CONCAT('%', name, '%')
 ```
 
 ---
 
 <!-- omit in toc -->
-### 13.
+### 14. _Find the capital and the name where the capital is an extension of name of the country._ You should include _Mexico City_ as it is longer than _Mexico_. You should not include _Luxembourg_ as the capital is the same as the country
 
 ```SQL
-
+SELECT capital, name
+  FROM world
+ WHERE capital LIKE CONCAT('%', name, '%')
+   AND capital != name
 ```
 
 ---
 
 <!-- omit in toc -->
-### 14.
+### 15. The capital of _Monaco_ is _Monaco-Ville_: this is the name _Monaco_ and the extension is _-Ville_. _Show the name and the extension where the capital is a proper (non-empty) extension of name of the country_
 
 ```SQL
-
-```
-
----
-
-<!-- omit in toc -->
-### 15.
-
-```SQL
-
+SELECT name, REPLACE(capital, name, '') AS extension
+  FROM world
+ WHERE capital LIKE CONCAT('%', name, '%')
+   AND capital != name
 ```
 
 <div align="right">
