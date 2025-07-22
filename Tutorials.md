@@ -47,6 +47,7 @@ SELECT population
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. Checking a list The word _IN_ allows us to check if an item is in a list. The example shows the name and population for the countries 'Brazil', 'Russia', 'India' and 'China'. _Show the name and the population for 'Sweden', 'Norway' and 'Denmark'_
 
@@ -57,6 +58,7 @@ SELECT name, population
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3. Which countries are not too small and not too big? `BETWEEN` allows range checking (range specified is inclusive of boundary values). The example below shows countries with an area of 250,000-300,000 sq. km. Modify it to show the country and the area for countries with an area between 200,000 and 250,000
@@ -107,6 +109,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. _Find the countries that end with y_
 
@@ -117,6 +120,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3. Luxembourg has an _x_ - so does one other country. List them both. _Find the countries that contain the letter x_
@@ -129,6 +133,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 4. Iceland, Switzerland end with _land_ - but are there others? _Find the countries that end with land_
 
@@ -139,6 +144,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5. Columbia starts with a _C_ and ends with _ia_ - there are two more like this. _Find the countries that start with C and end with ia_
@@ -151,6 +157,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 6. Greece has a double _e_ - who has a double _o_? _Find the country that has oo in the name_
 
@@ -161,6 +168,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7. Bahamas has three _a_ - who else? _Find the countries that have three or more a in the name_
@@ -173,6 +181,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 8. India and Angola have an _n_ as the second character. You can use the underscore as a single character wildcard. _Find the countries that have "t" as the second character_
 
@@ -183,6 +192,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 9. Lesotho and Moldova both have two o characters separated by two other characters. _Find the countries that have two "o" characters separated by two others._
@@ -199,6 +209,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 10. uba and Togo have four characters names. _Find the countries that have exactly four characters_
 
@@ -209,6 +220,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 11. The capital of _Luxembourg_ is _Luxembourg_. Show all the countries where the capital is the same as the name of the country. _Find the country where the name is the capital city_
@@ -221,6 +233,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 12. The capital of _Mexico_ is _Mexico City_. Show all the countries where the capital has the country together with the word "City". _Find the country where the capital is the country plus "City"_
 
@@ -231,6 +244,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 13. _Find the capital and the name where the capital includes the name of the country_
@@ -243,6 +257,7 @@ SELECT capital, name
 
 ---
 
+
 <!-- omit in toc -->
 ### 14. _Find the capital and the name where the capital is an extension of name of the country._ You should include _Mexico City_ as it is longer than _Mexico_. You should not include _Luxembourg_ as the capital is the same as the country
 
@@ -254,6 +269,7 @@ SELECT capital, name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 15. The capital of _Monaco_ is _Monaco-Ville_: this is the name _Monaco_ and the extension is _-Ville_. _Show the name and the extension where the capital is a proper (non-empty) extension of name of the country_
@@ -288,6 +304,7 @@ SELECT name, continent, population
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. [How to use WHERE to filter records](https://sqlzoo.net/wiki/WHERE_filters). Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, there are eight zeros
 
@@ -298,6 +315,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3. Give the `name` and the _per capita GDP_ for those countries with a `population` of at least 200 million
@@ -310,6 +328,7 @@ SELECT name, gdp/population
 
 ---
 
+
 <!-- omit in toc -->
 ### 4. Show the `name` and `population` in millions for the countries of the `continent` 'South America'. Divide the population by 1000000 to get population in millions
 
@@ -320,6 +339,7 @@ SELECT name, population/1000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5. Show the `name` and `population` for France, Germany, Italy
@@ -332,6 +352,7 @@ SELECT name, population
 
 ---
 
+
 <!-- omit in toc -->
 ### 6. Show the countries which have a `name` that includes the word 'United'
 
@@ -343,6 +364,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 7. Two ways to be big: A country is _big_ if it has an area of more than 3 million sq km or it has a population of more than 250 million. _Show the countries that are big by area or big by population. Show name, population and area_
 
@@ -353,6 +375,7 @@ SELECT name, population, area
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 8. Exclusive OR (XOR). Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area
@@ -370,6 +393,7 @@ SELECT name, population, area
 
 ---
 
+
 <!-- omit in toc -->
 ### 9. Show the `name` and `population` in millions and the GDP in billions for the countries of the `continent` 'South America'. Use the [ROUND](https://sqlzoo.net/wiki/ROUND) function to show the values to two decimal places. _For Americas show population in millions and GDP in billions both to 2 decimal places_
 
@@ -381,6 +405,7 @@ SELECT name, ROUND(population/1000000, 2), ROUND(gdp/1000000000, 2)
 
 ---
 
+
 <!-- omit in toc -->
 ### 10. Show the `name` and per-capita GDP for those countries with a GDP of at least one trillion (1000000000000; that is 12 zeros). Round this value to the nearest 1000. _Show per-capita GDP for the trillion dollar countries to the nearest $1000_
 
@@ -391,6 +416,7 @@ SELECT name, ROUND(gdp/population, -3)
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 11. Greece has capital Athens. Each of the strings 'Greece', and 'Athens' has 6 characters. _Show the name and capital where the name and the capital have the same number of characters._
@@ -406,6 +432,7 @@ SELECT name, capital
 
 ---
 
+
 <!-- omit in toc -->
 ### 12. The capital of Sweden is Stockholm. Both words start with the letter 'S'. _Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word_
 
@@ -420,6 +447,7 @@ SELECT name, capital
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 13. _Equatorial Guinea_ and _Dominican Republic_ have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name. _Find the country that has all the vowels and no spaces in its name_
@@ -476,6 +504,7 @@ SELECT yr, subject, winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. Show who won the 1962 prize for literature
 
@@ -488,6 +517,7 @@ SELECT winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 3. Show the year and subject that won 'Albert Einstein' his prize
 
@@ -498,6 +528,7 @@ SELECT yr, subject
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 4. Give the name of the 'peace' winners since the year 2000, including 2000
@@ -511,6 +542,7 @@ SELECT winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 5. Show all details (_yr_, _subject_, _winner_) of the literature prize winners for 1980 to 1989 inclusive
 
@@ -522,6 +554,7 @@ SELECT yr, subject, winner
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 6. Show all details of the presidential winners
@@ -542,6 +575,7 @@ SELECT yr, subject, winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 7. Show the winners with first name John
 
@@ -552,6 +586,7 @@ SELECT winner
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 8. _Show the year, subject, and name of physics winners for 1980 together with the chemistry winners for 1984_
@@ -564,6 +599,7 @@ SELECT yr, subject, winner
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 9. _Show the year, subject, and name of winners for 1980 excluding chemistry and medicine_
@@ -578,6 +614,7 @@ SELECT yr, subject, winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 10. Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
 
@@ -590,6 +627,7 @@ SELECT yr, subject, winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 11. Find all details of the prize won by PETER GRÜNBERG
 
@@ -600,6 +638,7 @@ SELECT yr, subject, winner
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 12. Find all details of the prize won by EUGENE O'NEILL
@@ -622,6 +661,7 @@ SELECT yr, subject, winner
 
 ---
 
+
 <!-- omit in toc -->
 ### 13. Knights in order. _List the winners, year and subject where the winner starts with Sir. Show the the most recent first, then by name order_
 
@@ -633,6 +673,7 @@ SELECT winner, yr, subject
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 14. The expression _subject IN ('chemistry','physics')_ can be used as a value - it will be _0_ or _1_. _Show the 1984 winners and subject ordered by subject and winner name; but list chemistry and physics last_
@@ -704,6 +745,7 @@ SELECT name
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. _Show the countries in Europe with a per capita GDP greater than 'United Kingdom'_
 
@@ -717,6 +759,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3. _List the name and continent of countries in the continents containing either Argentina or Australia. Order by name of the country_
@@ -732,6 +775,7 @@ ORDER BY name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 4. _Which country has a population that is more than United Kingdom but less than Germany? Show the name and the population_
@@ -750,6 +794,7 @@ SELECT name, population
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5. Germany (population roughly 80 million) has the largest population of the countries in Europe. Austria (population 8.5 million) has 11% of the population of Germany. _Show the name and the population of each country in Europe. Show the population as a percentage of the population of Germany_
@@ -782,6 +827,7 @@ SELECT name,
 
 ---
 
+
 <!-- omit in toc -->
 ### 6. _Which countries have a GDP greater than every country in Europe? [Give the name only.] (Some countries may have NULL gdp values)_
 
@@ -794,6 +840,7 @@ SELECT name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7. _Find the largest country (by area) in each continent, show the continent, the name and the area:_ The above example is known as a _correlated_ or _synchronized_ sub-query
@@ -808,6 +855,7 @@ SELECT continent, name, area
 
 ---
 
+
 <!-- omit in toc -->
 ### 8. _List each continent and the name of the country that comes first alphabetically_
 
@@ -819,6 +867,7 @@ SELECT continent, MIN(name) AS name
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 9. _Find the continents where all countries have a population <= 25000000. Then find the names of the countries Accompanying with these continents. Show name, continent and population_
@@ -843,6 +892,7 @@ SELECT name, continent, population
 > ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 10. _Some countries have populations more than three times that of all of their neighbours (in the same continent). Give the countries and continents_
@@ -901,6 +951,7 @@ SELECT SUM(population)
 
 ---
 
+
 <!-- omit in toc -->
 ### 2. List all the continents - just once each
 
@@ -938,6 +989,7 @@ SELECT SUM(gdp)
 
 ---
 
+
 <!-- omit in toc -->
 ### 4. How many countries have an _area_ of at least 1000000
 
@@ -948,6 +1000,7 @@ SELECT COUNT(name)
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5. What is the total _population_ of ('Estonia', 'Latvia', 'Lithuania')
@@ -960,6 +1013,7 @@ SELECT SUM(population)
 
 ---
 
+
 <!-- omit in toc -->
 ### 6. For each _continent_ show the _continent_ and number of countries
 
@@ -970,6 +1024,7 @@ SELECT continent, COUNT(name)
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7. For each _continent_ show the _continent_ and number of countries with populations of at least 10 million
@@ -982,6 +1037,7 @@ SELECT continent, COUNT(name)
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 8. List the continents that _have_ a total population of at least 100 million
@@ -1026,6 +1082,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1034,6 +1091,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1044,6 +1102,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1052,6 +1111,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1062,6 +1122,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1070,6 +1131,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7.
@@ -1080,6 +1142,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 8.
 
@@ -1088,6 +1151,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 9.
@@ -1098,6 +1162,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 10.
 
@@ -1106,6 +1171,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 11.
@@ -1116,6 +1182,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 12.
 
@@ -1124,6 +1191,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 13.
@@ -1165,6 +1233,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1173,6 +1242,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1183,6 +1253,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1191,6 +1262,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1201,6 +1273,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1209,6 +1282,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7.
@@ -1219,6 +1293,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 8.
 
@@ -1227,6 +1302,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 9.
@@ -1237,6 +1313,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 10.
 
@@ -1245,6 +1322,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 11.
@@ -1255,6 +1333,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 12.
 
@@ -1263,6 +1342,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 13.
@@ -1273,6 +1353,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 14.
 
@@ -1281,6 +1362,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 15.
@@ -1322,6 +1404,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1330,6 +1413,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1340,6 +1424,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1348,6 +1433,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1358,6 +1444,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1366,6 +1453,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7.
@@ -1376,6 +1464,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 8.
 
@@ -1385,6 +1474,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 9.
 
@@ -1393,6 +1483,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 10.
@@ -1434,6 +1525,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1442,6 +1534,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1452,6 +1545,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1460,6 +1554,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1470,6 +1565,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1478,6 +1574,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7.
@@ -1488,6 +1585,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 8.
 
@@ -1497,6 +1595,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 9.
 
@@ -1505,6 +1604,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 10.
@@ -1535,6 +1635,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1543,6 +1644,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1553,6 +1655,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1562,6 +1665,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 5.
 
@@ -1570,6 +1674,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 6.
@@ -1600,6 +1705,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1608,6 +1714,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1618,6 +1725,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1626,6 +1734,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1636,6 +1745,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1645,6 +1755,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 7.
 
@@ -1653,6 +1764,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 8.
@@ -1681,6 +1793,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 2.
 
@@ -1689,6 +1802,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 3.
@@ -1699,6 +1813,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 4.
 
@@ -1707,6 +1822,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 5.
@@ -1717,6 +1833,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 6.
 
@@ -1725,6 +1842,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 7.
@@ -1735,6 +1853,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 8.
 
@@ -1744,6 +1863,7 @@ HAVING SUM(population) > 100000000
 
 ---
 
+
 <!-- omit in toc -->
 ### 9.
 
@@ -1752,6 +1872,7 @@ HAVING SUM(population) > 100000000
 ```
 
 ---
+
 
 <!-- omit in toc -->
 ### 10.
