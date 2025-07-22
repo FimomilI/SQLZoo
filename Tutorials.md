@@ -888,77 +888,109 @@ SELECT name, continent
 
 
 
-## 5 SUM and COUNT
+## 5 SUM and COUNT (last edited 22/07/2025)
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Show the total _population_ of the world
 
 ```SQL
-
+SELECT SUM(population)
+  FROM world
 ```
 
 ---
 
 <!-- omit in toc -->
-### 2.
+### 2. List all the continents - just once each
 
 ```SQL
+SELECT MAX(continent)
+  FROM world
+ GROUP BY continent
+```
 
+> Alternative query
+>
+> ```SQL
+> SELECT MIN(continent)
+>   FROM world
+>  GROUP BY continent
+> ```
+>
+> And probably the best answer
+> ```SQL
+> SELECT DISTINCT continent
+>   FROM world
+> ```
+
+---
+
+
+<!-- omit in toc -->
+### 3. Give the total GDP of Africa
+
+```SQL
+SELECT SUM(gdp)
+  FROM world
+ WHERE continent = 'Africa'
 ```
 
 ---
 
 <!-- omit in toc -->
-### 3.
+### 4. How many countries have an _area_ of at least 1000000
 
 ```SQL
-
+SELECT COUNT(name)
+  FROM world
+ WHERE area >= 1000000
 ```
 
 ---
 
 <!-- omit in toc -->
-### 4.
+### 5. What is the total _population_ of ('Estonia', 'Latvia', 'Lithuania')
 
 ```SQL
-
+SELECT SUM(population)
+  FROM world
+ WHERE name IN ('Estonia', 'Latvia', 'Lithuania') 
 ```
 
 ---
 
 <!-- omit in toc -->
-### 5.
+### 6. For each _continent_ show the _continent_ and number of countries
 
 ```SQL
-
+SELECT continent, COUNT(name)
+  FROM world
+ GROUP BY continent
 ```
 
 ---
 
 <!-- omit in toc -->
-### 6.
+### 7. For each _continent_ show the _continent_ and number of countries with populations of at least 10 million
 
 ```SQL
-
+SELECT continent, COUNT(name)
+  FROM world
+ WHERE population > 10000000
+ GROUP BY continent
 ```
 
 ---
 
 <!-- omit in toc -->
-### 7.
+### 8. List the continents that _have_ a total population of at least 100 million
 
 ```SQL
-
-```
-
----
-
-<!-- omit in toc -->
-### 8.
-
-```SQL
-
+SELECT continent
+  FROM world
+ GROUP BY continent
+HAVING SUM(population) > 100000000
 ```
 
 
