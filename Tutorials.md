@@ -12,10 +12,14 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [2 SELECT from WORLD Tutorial (last edited 20/07/2025)](#2-select-from-world-tutorial-last-edited-20072025)
 - [3 SELECT from Nobel (last edited 20/07/2025)](#3-select-from-nobel-last-edited-20072025)
 - [4 SELECT within SELECT Tutorial (last edited 20/07/2025)](#4-select-within-select-tutorial-last-edited-20072025)
-- [5 SUM and COUNT](#5-sum-and-count)
+- [5 SUM and COUNT (last edited 22/07/2025)](#5-sum-and-count-last-edited-22072025)
+- [\*The nobel table can be used to practice more SUM and COUNT functions](#the-nobel-table-can-be-used-to-practice-more-sum-and-count-functions)
 - [6 The JOIN operation](#6-the-join-operation)
+- [\*Old JOIN Tutorial](#old-join-tutorial)
+- [\*Music Tutorial](#music-tutorial)
 - [7 More JOIN operations](#7-more-join-operations)
 - [8 Using Null](#8-using-null)
+- [\*Scottish Parliament](#scottish-parliament)
 - [8+ NSS Tutorial (Numeric Examples)](#8-nss-tutorial-numeric-examples)
 - [9- Window functions](#9--window-functions)
 - [9+ Window LAG (COVID 19)](#9-window-lag-covid-19)
@@ -970,6 +974,7 @@ SELECT MAX(continent)
 > ```
 >
 > And probably the best answer
+>
 > ```SQL
 > SELECT DISTINCT continent
 >   FROM world
@@ -1058,6 +1063,138 @@ HAVING SUM(population) > 100000000
 > [_***Accompanying SUM and COUNT Quiz***_](./Quizes.md#5-sum-and-count-quiz)
 >
 > </div>
+
+
+<div align="right">
+
+  [![header](https://img.shields.io/badge/back_to-TOC-grey?style=flat-square)](#table-of-contents)
+</div>
+
+---
+
+
+
+## *The nobel table can be used to practice more SUM and COUNT functions
+
+Another tutorial for aggregate functions (<https://sqlzoo.net/wiki/The_nobel_table_can_be_used_to_practice_more_SUM_and_COUNT_functions.>) using the Nobel table introduced in the [SELECT basics section](#0-select-basics-last-edited-20072025)
+
+
+<!-- omit in toc -->
+### 1.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 2.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 3.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 4.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 5.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 6.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 7.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 8.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 9.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 10.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 11.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 12.
+
+```SQL
+
+```
 
 
 <div align="right">
@@ -1209,6 +1346,220 @@ HAVING SUM(population) > 100000000
 > [_***Accompanying JOIN Quiz***_](./Quizes.md#6-join-quiz)
 >
 > </div>
+
+
+<div align="right">
+
+  [![header](https://img.shields.io/badge/back_to-TOC-grey?style=flat-square)](#table-of-contents)
+</div>
+
+---
+
+
+
+## *Old JOIN Tutorial
+
+Another older tutorial for JOIN operations (<https://sqlzoo.net/wiki/Old_JOIN_Tutorial>).
+
+
+<!-- omit in toc -->
+### 1.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 2.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 3.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 4.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 5.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 6.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 7.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 8.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 9.
+
+```SQL
+
+```
+
+
+<div align="right">
+
+  [![header](https://img.shields.io/badge/back_to-TOC-grey?style=flat-square)](#table-of-contents)
+</div>
+
+---
+
+
+
+## *Music Tutorial
+
+Yet another (older) tutorial for JOIN operations (<https://sqlzoo.net/wiki/Music_Tutorial>).
+
+
+<!-- omit in toc -->
+### 1.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 2.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 3.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 4.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 5.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 6.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 7.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 8.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 9.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 10.
+
+```SQL
+
+```
 
 
 <div align="right">
@@ -1501,6 +1852,88 @@ HAVING SUM(population) > 100000000
 > [_***Accompanying Using Null Quiz***_](./Quizes.md#8-using-null-quiz)
 >
 > </div>
+
+
+<div align="right">
+
+  [![header](https://img.shields.io/badge/back_to-TOC-grey?style=flat-square)](#table-of-contents)
+</div>
+
+---
+
+
+
+## *Scottish Parliament
+
+The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliament>).
+
+
+<!-- omit in toc -->
+### 1.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 2.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 3.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 4.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 5.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 6.
+
+```SQL
+
+```
+
+---
+
+
+<!-- omit in toc -->
+### 7.
+
+```SQL
+
+```
 
 
 <div align="right">
