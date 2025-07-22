@@ -292,65 +292,79 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the statement that shows the sum of population of all countries in 'Europe'
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q5q1](assets/quiz_answers/Quiz5.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the statement that shows the number of countries with population smaller than 150000
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q5q2](assets/quiz_answers/Quiz5.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the list of core SQL aggregate functions
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q5q3](assets/quiz_answers/Quiz5.Question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from the following code
 
+```SQL
+ SELECT region, SUM(area)
+   FROM bbc
+  WHERE SUM(area) > 15000000
+  GROUP BY region
+```
 
+![Q5q4](assets/quiz_answers/Quiz5.question4.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 8.
+### 5. Select the statement that shows the average population of 'Poland', 'Germany' and 'Denmark'
+
+![Q5q5](assets/quiz_answers/Quiz5.question5.png)
+
+---
 
 
+<!-- omit in toc -->
+### 6. Select the statement that shows the medium population density of each region
+
+![Q5q6](assets/quiz_answers/Quiz5.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Select the statement that shows the name and population density of the country with the largest population
+
+![Q5q7](assets/quiz_answers/Quiz5.question7.png)
+
+---
+
+
+<!-- omit in toc -->
+### 8. Pick the result that would be obtained from the following code
+
+```SQL
+ SELECT region, SUM(area) 
+   FROM bbc 
+  GROUP BY region
+ HAVING SUM(area) <= 20000000
+```
+
+![Q5q8](assets/quiz_answers/Quiz5.question8.png)
 
 
 <div align="right">
