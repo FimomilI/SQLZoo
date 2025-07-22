@@ -22,6 +22,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 ## 1. SELECT Quiz
 
+Webpage <https://sqlzoo.net/wiki/SELECT_Quiz>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -88,6 +90,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 ## 2. BBC Quiz
+
+Webpage: <https://sqlzoo.net/wiki/BBC_QUIZ>.
 
 
 <!-- omit in toc -->
@@ -156,6 +160,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 ## 3. Nobel Quiz
 
+Webpage: <https://sqlzoo.net/wiki/Nobel_Quiz>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -223,6 +229,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 ## 4. Nested SELECT Quiz
 
+Webpage: <https://sqlzoo.net/wiki/Nested_SELECT_Quiz>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -289,6 +297,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 ## 5. SUM and COUNT Quiz
+
+Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz>.
 
 
 <!-- omit in toc -->
@@ -379,6 +389,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 ## 6. JOIN Quiz
 
+Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -445,6 +457,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 ## 7. JOIN Quiz 2
+
+Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz_2>.
 
 
 <!-- omit in toc -->
@@ -513,6 +527,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 ## 8. Using Null Quiz
 
+Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -571,6 +587,8 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 ## 9. Self JOIN Quiz
+
+Webpage: <https://sqlzoo.net/wiki/Self_join_Quiz>.
 
 
 <!-- omit in toc -->

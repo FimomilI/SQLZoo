@@ -30,6 +30,8 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 
 ## 0 SELECT basics (last edited 20/07/2025)
 
+Webpage: <https://sqlzoo.net/wiki/SELECT_basics>.
+
 Introducing the world table of countries
 
 <div id="header" align="center">
@@ -95,6 +97,8 @@ SELECT name, area
 
 
 ## 1 SELECT name (last edited 21/07/2025)
+
+Webpage: <https://sqlzoo.net/wiki/SELECT_names>.
 
 
 <!-- omit in toc -->
@@ -297,6 +301,8 @@ SELECT name, REPLACE(capital, name, '') AS extension
 
 ## 2 SELECT from WORLD Tutorial (last edited 20/07/2025)
 
+Webpage: <https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial>.
+
 
 <!-- omit in toc -->
 ### 1. [Read the notes about this table](https://sqlzoo.net/wiki/Read_the_notes_about_this_table.). Observe the result of running this SQL command to show the name, continent and population of all countries
@@ -492,6 +498,8 @@ SELECT name
 
 
 ## 3 SELECT from Nobel (last edited 20/07/2025)
+
+Webpage: <https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial>.
 
 
 ![nobel_table](assets/nobel_table.png)
@@ -735,6 +743,8 @@ SELECT winner, subject
 
 ## 4 SELECT within SELECT Tutorial (last edited 20/07/2025)
 
+Webpage: <https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial>.
+
 
 <!-- omit in toc -->
 ### 1. _List each country name where the population is larger than that of 'Russia'_
@@ -943,6 +953,8 @@ SELECT name, continent
 
 
 ## 5 SUM and COUNT (last edited 22/07/2025)
+
+Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT>.
 
 
 <!-- omit in toc -->
@@ -1208,6 +1220,8 @@ Another tutorial for aggregate functions (<https://sqlzoo.net/wiki/The_nobel_tab
 
 
 ## 6 The JOIN operation
+
+Webpage: <https://sqlzoo.net/wiki/The_JOIN_operation>.
 
 
 <!-- omit in toc -->
@@ -1574,6 +1588,8 @@ Yet another (older) tutorial for JOIN operations (<https://sqlzoo.net/wiki/Music
 
 ## 7 More JOIN operations
 
+Webpage: <https://sqlzoo.net/wiki/More_JOIN_operations>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -1744,6 +1760,8 @@ Yet another (older) tutorial for JOIN operations (<https://sqlzoo.net/wiki/Music
 
 
 ## 8 Using Null
+
+Webpage: <https://sqlzoo.net/wiki/Using_Null>.
 
 
 <!-- omit in toc -->
@@ -1948,6 +1966,8 @@ The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliamen
 
 ## 8+ NSS Tutorial (Numeric Examples)
 
+Webpage: <https://sqlzoo.net/wiki/NSS_Tutorial>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -2058,6 +2078,8 @@ The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliamen
 
 ## 9- Window functions
 
+Webpage: <https://sqlzoo.net/wiki/Window_functions>.
+
 
 <!-- omit in toc -->
 ### 1.
@@ -2127,6 +2149,8 @@ The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliamen
 
 
 ## 9+ Window LAG (COVID 19)
+
+Webpage: <https://sqlzoo.net/wiki/Window_LAG>.
 
 
 <!-- omit in toc -->
@@ -2215,6 +2239,8 @@ The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliamen
 
 
 ## 9 Self Join
+
+Webpage: <https://sqlzoo.net/wiki/Self_join>.
 
 
 <!-- omit in toc -->
