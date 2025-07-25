@@ -368,7 +368,7 @@ Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz>.
 ### 8. Pick the result that would be obtained from the following code
 
 ```SQL
- SELECT region, SUM(area) 
+ SELECT region, SUM(area)
    FROM bbc 
   GROUP BY region
  HAVING SUM(area) <= 20000000

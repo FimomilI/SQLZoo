@@ -1462,92 +1462,136 @@ SELECT game.mdate,
 
 Another older tutorial for JOIN operations (<https://sqlzoo.net/wiki/Old_JOIN_Tutorial>).
 
+The Table Tennis Olympics Database
+
+<div align="center">
+
+  ![Table Tennis Olympics Database](assets/Table_Tennis_Olympics_Database.png)
+
+</div>
+
+The Woman's Singles Table Tennis Olympics Database
+
+<div align="center">
+
+  ![Woman's Singles Table Tennis Olympics Database](assets/Womans_Singles_Table_Tennis_Olympics_Database.png)
+
+</div>
+
+The Table Tennis Mens Doubles
+
+<div align="center">
+
+  ![Table Tennis Mens Doubles Database](assets/Table_Tennis_Mens_Doubles.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. Show the athelete `(who)` and the country name for medal winners in 2000
 
 ```SQL
-
+SELECT ttms.who, country.name
+  FROM ttms JOIN country ON (ttms.country=country.id)
+ WHERE games = 2000
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. Show the who and the color of the medal for the medal winners from 'Sweden'
 
 ```SQL
-
+SELECT ttms.who, ttms.color
+  FROM ttms JOIN country ON (ttms.country=country.id)
+ WHERE country.name = 'Sweden'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. Show the years in which 'China' won a 'gold' medal
 
 ```SQL
-
+SELECT ttms.games
+  FROM ttms JOIN country ON (ttms.country=country.id)
+ WHERE country.name = 'China'
+   AND ttms.color = 'gold'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. Show who `won` medals in the 'Barcelona' games
 
 ```SQL
-
+SELECT ttws.who
+  FROM ttws JOIN games ON (ttws.games=games.yr)
+ WHERE city = 'Barcelona'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 5. Show which city 'Jing Chen' won medals. Show the `city` and the medal `color`
 
 ```SQL
-
+SELECT games.city, ttws.color
+  FROM ttws JOIN games ON (ttws.games=games.yr)
+ WHERE ttws.who = 'Jing Chen'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 6. Show `who` won the gold medal and the `city`
 
 ```SQL
-
+SELECT ttws.who, games.city
+  FROM ttws JOIN games ON (ttws.games=games.yr)
+ WHERE ttws.color = 'gold'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 7. Show the games and color of the medal won by the team that includes 'Yan Sen'
 
 ```SQL
-
+SELECT ttmd.games, ttmd.color
+  FROM ttmd JOIN team ON (ttmd.team=team.id)
+ WHERE team.name = 'Yan Sen'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 8.
+### 8. Show the 'gold' medal winners in 2004
 
 ```SQL
-
+SELECT team.name
+  FROM team JOIN ttmd ON (team.id=ttmd.team)
+ WHERE ttmd.games = 2004
+   AND ttmd.color = 'gold'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 9.
+### 9. Show the name of each medal winner country 'FRA'
 
 ```SQL
-
+SELECT team.name
+  FROM team JOIN ttmd ON (team.id=ttmd.team)
+ WHERE ttmd.country = 'FRA'
 ```
 
 
