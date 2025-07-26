@@ -1608,103 +1608,139 @@ SELECT team.name
 
 Yet another (older) tutorial for JOIN operations (<https://sqlzoo.net/wiki/Music_Tutorial>).
 
+The Music Database
+
+<div align="center">
+
+  ![Music Database](assets/Music_Database.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. Find the `title` and `artist` who recorded the `song` `'Alison'`
 
 ```SQL
-
+SELECT album.title, album.artist
+  FROM album JOIN track ON (album.asin=track.album)
+ WHERE song = 'Alison'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. Which `artist` recorded the `song` `'Exodus'`
 
 ```SQL
-
+SELECT album.artist
+  FROM album JOIN track ON (album.asin=track.album)
+ WHERE track.song = 'Exodus'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. Show the `song` for each `track` on the `album` `'Blur'`
 
 ```SQL
-
+SELECT track.song
+  FROM album JOIN track ON (album.asin=track.album)
+ WHERE album.title = 'Blur'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. For each `album` show the `title` and the total number of `track`
 
 ```SQL
-
+SELECT album.title, COUNT(track.song)
+  FROM album JOIN track ON (album.asin=track.album)
+ GROUP BY title
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 5. For each `album` show the `title` and the total number of tracks containing the word `'Heart'` (albums with no such tracks need not be shown)
 
 ```SQL
-
+SELECT album.title, COUNT(track.song)
+  FROM album JOIN track ON (album.asin=track.album)
+ WHERE track.song LIKE '%Heart%'
+ GROUP BY title
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 6. A "title track" is where the `song` is the same as the `title`. Find the title tracks
 
 ```SQL
-
+SELECT track.song
+  FROM track JOIN album ON (track.album=album.asin)
+ WHERE track.song = album.title
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 7. An "eponymous" album is one where the title is the same as the artist (for example the album `'Blur'` by the band `'Blur'`). Show the eponymous albums
 
 ```SQL
-
+SELECT title
+  FROM album
+ WHERE title = artist
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 8.
+### 8. Find the songs that appear on more than 2 albums. Include a count of the number of times each shows up
 
 ```SQL
-
+SELECT track.song, COUNT(DISTINCT track.album)
+  FROM track JOIN album ON (track.album=album.asin)
+ GROUP BY track.song
+HAVING COUNT(DISTINCT track.album) > 2
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 9.
+### 9. A "good value" album is one where the price per track is less than 50 pence. Find the good value album - show the title, the price and the number of tracks
 
 ```SQL
-
+SELECT album.title, album.price, COUNT(track.song)
+  FROM album JOIN track ON (album.asin=track.album)
+ GROUP BY album.title, album.price
+HAVING album.price/COUNT(track.song) < 0.5
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 10.
+### 10. Wagner's Ring cycle has an imposing 173 tracks, Bing Crosby clocks up 101 tracks. _List albums so that the album with the most tracks is first. Show the title and the number of tracks_ Where two or more albums have the same number of tracks you should order alphabetically
 
 ```SQL
-
+SELECT album.title, COUNT(album.asin) AS track_count
+  FROM album
+  JOIN track ON (album.asin=track.album)
+ GROUP BY album.asin, album.title
+ ORDER BY COUNT(album.asin) DESC, album.title ASC
 ```
+
+> [!NOTE]
+> `GROUP BY album.asin, album.title` is required to ensure different `artist`'s with the same album `title`'s are not group together because they're first grouped by `asin`.
 
 
 <div align="right">
