@@ -1290,7 +1290,8 @@ SELECT id, stadium, team1, team2
 
 ```SQL
 SELECT *
-  FROM game JOIN goal ON (id=matchid)
+  FROM game
+  JOIN goal ON (id=matchid)
 ```
 
 The **FROM** clause says to merge data from the goal table with that from the game table. The **ON** says how to figure out which rows in **game** go with which rows in **goal** - the **matchid** from **goal** must match **id** from **game**. (If we wanted to be more clear/specific we could say
@@ -1303,7 +1304,8 @@ _Modify it to show the player, teamid, stadium and mdate for every German goal._
 
 ```SQL
 SELECT goal.player, goal.teamid, game.stadium, game.mdate
-  FROM game JOIN goal ON (game.id=goal.matchid)
+  FROM game
+  JOIN goal ON (game.id=goal.matchid)
  WHERE goal.teamid = 'GER'
 ```
 
@@ -1315,7 +1317,8 @@ SELECT goal.player, goal.teamid, game.stadium, game.mdate
 
 ```SQL
 SELECT game.team1, game.team2, goal.player
-  FROM game JOIN goal ON (game.id=goal.matchid)
+  FROM game
+  JOIN goal ON (game.id=goal.matchid)
  WHERE goal.player LIKE 'Mario%'
 ```
 
@@ -1327,7 +1330,8 @@ SELECT game.team1, game.team2, goal.player
 
 ```SQL
 SELECT goal.player, goal.teamid, eteam.coach, goal.gtime
-  FROM goal JOIN eteam ON (eteam.id=goal.teamid)
+  FROM goal
+  JOIN eteam ON (eteam.id=goal.teamid)
  WHERE goal.gtime <= 10
 ```
 
@@ -1339,7 +1343,8 @@ SELECT goal.player, goal.teamid, eteam.coach, goal.gtime
 
 ```SQL
 SELECT game.mdate, eteam.teamname
-  FROM game JOIN eteam ON (eteam.id=game.team1)
+  FROM game
+  JOIN eteam ON (eteam.id=game.team1)
  WHERE eteam.coach = 'Fernando Santos'
 ```
 
@@ -1351,7 +1356,8 @@ SELECT game.mdate, eteam.teamname
 
 ```SQL
 SELECT goal.player
-  FROM goal JOIN game ON (goal.matchid=game.id)
+  FROM goal
+  JOIN game ON (goal.matchid=game.id)
  WHERE game.stadium = 'National Stadium, Warsaw'
 ```
 
@@ -1363,7 +1369,8 @@ SELECT goal.player
 
 ```SQL
 SELECT DISTINCT player
-  FROM game JOIN goal ON (game.id=goal.matchid)
+  FROM game
+  JOIN goal ON (game.id=goal.matchid)
  WHERE (game.team1 = 'GER' AND goal.teamid = game.team2)
     OR (game.team2 = 'GER' AND goal.teamid = game.team1)
 ```
@@ -1376,7 +1383,8 @@ SELECT DISTINCT player
 
 ```SQL
 SELECT eteam.teamname, COUNT(goal.player) AS goals
-  FROM eteam JOIN goal ON eteam.id=goal.teamid
+  FROM eteam
+  JOIN goal ON eteam.id=goal.teamid
  GROUP BY teamname
 ```
 
@@ -1388,7 +1396,8 @@ SELECT eteam.teamname, COUNT(goal.player) AS goals
 
 ```SQL
 SELECT game.stadium, COUNT(goal.player) AS goals
-  FROM game JOIN goal ON game.id=goal.matchid
+  FROM game
+  JOIN goal ON game.id=goal.matchid
  GROUP BY game.stadium
 ```
 
@@ -1400,7 +1409,8 @@ SELECT game.stadium, COUNT(goal.player) AS goals
 
 ```SQL
 SELECT goal.matchid, game.mdate, COUNT(goal.player)
-  FROM goal JOIN game ON goal.matchid=game.id
+  FROM goal
+  JOIN game ON goal.matchid=game.id
  WHERE (team1 = 'POL' OR team2 = 'POL')
  GROUP BY goal.matchid, game.mdate
 ```
@@ -1413,7 +1423,8 @@ SELECT goal.matchid, game.mdate, COUNT(goal.player)
 
 ```SQL
 SELECT goal.matchid, game.mdate, COUNT(goal.player)
-  FROM goal JOIN game ON goal.matchid=game.id
+  FROM goal
+  JOIN game ON goal.matchid=game.id
  WHERE goal.teamid = 'GER'
  GROUP BY goal.matchid, game.mdate
 ```
@@ -1430,7 +1441,8 @@ SELECT game.mdate,
        SUM(CASE WHEN goal.teamid = game.team1 THEN 1 ELSE 0 END) AS score1,
        game.team2,
        SUM(CASE WHEN goal.teamid = game.team2 THEN 1 ELSE 0 END) AS score2
-  FROM game LEFT JOIN goal ON game.id = goal.matchid
+  FROM game LEFT
+  JOIN goal ON game.id = goal.matchid
  GROUP BY game.mdate, game.team1, game.team2
  ORDER BY game.mdate, goal.matchid, game.team1, game.team2
 ```
@@ -1492,7 +1504,8 @@ The Table Tennis Mens Doubles
 
 ```SQL
 SELECT ttms.who, country.name
-  FROM ttms JOIN country ON (ttms.country=country.id)
+  FROM ttms
+  JOIN country ON (ttms.country=country.id)
  WHERE games = 2000
 ```
 
@@ -1504,7 +1517,8 @@ SELECT ttms.who, country.name
 
 ```SQL
 SELECT ttms.who, ttms.color
-  FROM ttms JOIN country ON (ttms.country=country.id)
+  FROM ttms
+  JOIN country ON (ttms.country=country.id)
  WHERE country.name = 'Sweden'
 ```
 
@@ -1516,7 +1530,8 @@ SELECT ttms.who, ttms.color
 
 ```SQL
 SELECT ttms.games
-  FROM ttms JOIN country ON (ttms.country=country.id)
+  FROM ttms
+  JOIN country ON (ttms.country=country.id)
  WHERE country.name = 'China'
    AND ttms.color = 'gold'
 ```
@@ -1529,7 +1544,8 @@ SELECT ttms.games
 
 ```SQL
 SELECT ttws.who
-  FROM ttws JOIN games ON (ttws.games=games.yr)
+  FROM ttws
+  JOIN games ON (ttws.games=games.yr)
  WHERE city = 'Barcelona'
 ```
 
@@ -1541,7 +1557,8 @@ SELECT ttws.who
 
 ```SQL
 SELECT games.city, ttws.color
-  FROM ttws JOIN games ON (ttws.games=games.yr)
+  FROM ttws
+  JOIN games ON (ttws.games=games.yr)
  WHERE ttws.who = 'Jing Chen'
 ```
 
@@ -1553,7 +1570,8 @@ SELECT games.city, ttws.color
 
 ```SQL
 SELECT ttws.who, games.city
-  FROM ttws JOIN games ON (ttws.games=games.yr)
+  FROM ttws
+  JOIN games ON (ttws.games=games.yr)
  WHERE ttws.color = 'gold'
 ```
 
@@ -1565,7 +1583,8 @@ SELECT ttws.who, games.city
 
 ```SQL
 SELECT ttmd.games, ttmd.color
-  FROM ttmd JOIN team ON (ttmd.team=team.id)
+  FROM ttmd
+  JOIN team ON (ttmd.team=team.id)
  WHERE team.name = 'Yan Sen'
 ```
 
@@ -1577,7 +1596,8 @@ SELECT ttmd.games, ttmd.color
 
 ```SQL
 SELECT team.name
-  FROM team JOIN ttmd ON (team.id=ttmd.team)
+  FROM team
+  JOIN ttmd ON (team.id=ttmd.team)
  WHERE ttmd.games = 2004
    AND ttmd.color = 'gold'
 ```
@@ -1590,7 +1610,8 @@ SELECT team.name
 
 ```SQL
 SELECT team.name
-  FROM team JOIN ttmd ON (team.id=ttmd.team)
+  FROM team
+  JOIN ttmd ON (team.id=ttmd.team)
  WHERE ttmd.country = 'FRA'
 ```
 
@@ -1622,7 +1643,8 @@ The Music Database
 
 ```SQL
 SELECT album.title, album.artist
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  WHERE song = 'Alison'
 ```
 
@@ -1634,7 +1656,8 @@ SELECT album.title, album.artist
 
 ```SQL
 SELECT album.artist
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  WHERE track.song = 'Exodus'
 ```
 
@@ -1646,7 +1669,8 @@ SELECT album.artist
 
 ```SQL
 SELECT track.song
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  WHERE album.title = 'Blur'
 ```
 
@@ -1658,7 +1682,8 @@ SELECT track.song
 
 ```SQL
 SELECT album.title, COUNT(track.song)
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  GROUP BY title
 ```
 
@@ -1670,7 +1695,8 @@ SELECT album.title, COUNT(track.song)
 
 ```SQL
 SELECT album.title, COUNT(track.song)
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  WHERE track.song LIKE '%Heart%'
  GROUP BY title
 ```
@@ -1683,7 +1709,8 @@ SELECT album.title, COUNT(track.song)
 
 ```SQL
 SELECT track.song
-  FROM track JOIN album ON (track.album=album.asin)
+  FROM track
+  JOIN album ON (track.album=album.asin)
  WHERE track.song = album.title
 ```
 
@@ -1707,7 +1734,8 @@ SELECT title
 
 ```SQL
 SELECT track.song, COUNT(DISTINCT track.album)
-  FROM track JOIN album ON (track.album=album.asin)
+  FROM track
+  JOIN album ON (track.album=album.asin)
  GROUP BY track.song
 HAVING COUNT(DISTINCT track.album) > 2
 ```
@@ -1720,7 +1748,8 @@ HAVING COUNT(DISTINCT track.album) > 2
 
 ```SQL
 SELECT album.title, album.price, COUNT(track.song)
-  FROM album JOIN track ON (album.asin=track.album)
+  FROM album
+  JOIN track ON (album.asin=track.album)
  GROUP BY album.title, album.price
 HAVING album.price/COUNT(track.song) < 0.5
 ```
