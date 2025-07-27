@@ -393,57 +393,57 @@ Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. You want to find the stadium where player 'Dimitris Salpingidis' scored. Select the JOIN condition to use
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q6q1](assets/quiz_answers/Quiz6.Question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. You JOIN the tables _goal_ and _eteam_ in an SQL statement. Indicate the list of column names that may be used in the SELECT line
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q6q2](assets/quiz_answers/Quiz6.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the code which shows players, their team and the amount of goals they scored against Greece(GRE)
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q6q3](assets/quiz_answers/Quiz6.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from this code
+
+![Q6q4](assets/quiz_answers/Quiz6.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Select the code which would show the player and their team for those who have scored against Poland(POL) in National Stadium, Warsaw
+
+![Q6q5](assets/quiz_answers/Quiz6.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the code which shows the player, their team and the time they scored, for players who have played in Stadion Miejski (Wroclaw) but not against Italy(ITA)
+
+![Q6q6](assets/quiz_answers/Quiz6.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Select the result that would be obtained from this code
+
+![Q6q7](assets/quiz_answers/Quiz6.question7.png)
 
 
 <div align="right">
