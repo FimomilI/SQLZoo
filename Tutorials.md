@@ -1982,9 +1982,25 @@ SELECT movie.title, actor.name
 >                                                       WHERE name = 'Julie Andrews'))
 >    AND casting.ord = 1
 > ```
+>
+> Or maybe just different syntax to put the `AND casting.ord = 1` on a newline?
+>
+> ```SQL
+> SELECT movie.title, actor.name
+>   FROM movie
+>   JOIN casting ON (movie.id = casting.movieid
+>                    AND casting.ord = 1)
+>   JOIN actor   ON (casting.actorid = actor.id)
+>  WHERE casting.movieid IN (SELECT movie.id
+>                              FROM movie
+>                              JOIN casting ON (movie.id = casting.movieid)
+>                             WHERE casting.actorid = (SELECT id
+>                                                        FROM actor
+>                                                       WHERE name = 'Julie Andrews'))
+> ```
 
 > [!NOTE]
-> Note how the `AND casting.ord = 1` condition can be used in the `JOIN` already, or simply appended on the end `WHERE` clause (which is clearer?).
+> Note how the `AND casting.ord = 1` condition can be used in the `JOIN` clasue already, or simply appended at the end of the `WHERE` clause (which is probably clearer/easier to comprehend?).
 
 ---
 
@@ -2033,7 +2049,7 @@ SELECT actor.name
                             WHERE actorid = (SELECT id
                                                FROM actor
                                               WHERE name = 'Art Garfunkel'))
-  AND actor.name != 'Art Garfunkel'
+   AND actor.name != 'Art Garfunkel'
 ```
 
 
