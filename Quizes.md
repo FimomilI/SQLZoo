@@ -419,6 +419,12 @@ Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
 <!-- omit in toc -->
 ### 4. Select the result that would be obtained from this code
 
+```SQL
+SELECT DISTINCT teamid, mdate
+  FROM goal JOIN game on (matchid=id)
+ WHERE mdate = '9 June 2012'
+```
+
 ![Q6q4](assets/quiz_answers/Quiz6.question4.png)
 
 ---
@@ -442,6 +448,13 @@ Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
 
 <!-- omit in toc -->
 ### 7. Select the result that would be obtained from this code
+
+```SQL
+SELECT teamname, COUNT(*)
+  FROM eteam JOIN goal ON teamid = id
+ GROUP BY teamname
+HAVING COUNT(*) < 3
+```
 
 ![Q6q7](assets/quiz_answers/Quiz6.question7.png)
 
