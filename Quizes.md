@@ -475,57 +475,74 @@ Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz_2>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the statement which lists the unfortunate directors of the movies which have caused financial loses (gross < budget)
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q7q1](assets/quiz_answers/Quiz7.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the correct example of JOINing three tables
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q7q2](assets/quiz_answers/Quiz7.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the statement that shows the list of actors called 'John' by order of number of movies in which they acted
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q7q3](assets/quiz_answers/Quiz7.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from the following code
+
+```SQL
+SELECT title
+  FROM movie JOIN casting ON (movieid = movie.id)
+             JOIN actor   ON (actorid = actor.id)
+ WHERE name = 'Paul Hogan'
+   AND ord = 1
+```
+
+![Q7q4](assets/quiz_answers/Quiz7.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Select the statement that lists all the actors that starred in movies directed by Ridley Scott who has id 351
+
+![Q7q5](assets/quiz_answers/Quiz7.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. There are two sensible ways to connect movie and actor. They are
+
+![Q7q6](assets/quiz_answers/Quiz7.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Select the result that would be obtained from the following code
+
+```SQL
+SELECT title, yr
+  FROM movie, casting, actor
+ WHERE name = 'Robert De Niro'
+   AND movieid = movie.id
+   AND actorid = actor.id
+   AND ord = 3
+```
+
+![Q7q7](assets/quiz_answers/Quiz7.question7.png)
 
 
 <div align="right">
