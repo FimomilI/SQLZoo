@@ -561,49 +561,71 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the code which uses an outer join correctly
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q8.q1](Quiz8.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the correct statement that shows the name of department which employs Cutflower -
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q8.q2](Quiz8.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select out of following the code which uses a JOIN to show a list of all the departments and number of employed teachers
 
-
+![Q8.q3](Quiz8.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 4. Using `SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher` on `teacher` table will
+
+![Q8.q4](Quiz8.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Query
+
+```SQL
+SELECT name,
+       CASE WHEN phone = 2752 THEN 'two'
+            WHEN phone = 2753 THEN 'three'
+            WHEN phone = 2754 THEN 'four'
+            END AS digit
+  FROM teacher
+```
+
+shows following 'digit'
+
+![Q8.q5](Quiz8.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the result that would be obtained from the following code
+
+```SQL
+SELECT name,
+     CASE
+       WHEN dept
+       IN (1)
+       THEN 'Computing'
+       ELSE 'Other'
+     END
+ FROM teacher
+```
+
+![Q8.q6](Quiz8.question6.png)
 
 
 <div align="right">
