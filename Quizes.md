@@ -563,7 +563,7 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 <!-- omit in toc -->
 ### 1. Select the code which uses an outer join correctly
 
-![Q8.q1](Quiz8.question1.png)
+![Q8.q1](assets/quiz_answers/Quiz8.question1.png)
 
 ---
 
@@ -571,7 +571,7 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 <!-- omit in toc -->
 ### 2. Select the correct statement that shows the name of department which employs Cutflower -
 
-![Q8.q2](Quiz8.question2.png)
+![Q8.q2](assets/quiz_answers/Quiz8.question2.png)
 
 ---
 
@@ -579,7 +579,7 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 <!-- omit in toc -->
 ### 3. Select out of following the code which uses a JOIN to show a list of all the departments and number of employed teachers
 
-![Q8.q3](Quiz8.question3.png)
+![Q8.q3](assets/quiz_answers/Quiz8.question3.png)
 
 ---
 
@@ -587,7 +587,7 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 <!-- omit in toc -->
 ### 4. Using `SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher` on `teacher` table will
 
-![Q8.q4](Quiz8.question4.png)
+![Q8.q4](assets/quiz_answers/Quiz8.question4.png)
 
 ---
 
@@ -606,7 +606,7 @@ SELECT name,
 
 shows following 'digit'
 
-![Q8.q5](Quiz8.question5.png)
+![Q8.q5](assets/quiz_answers/Quiz8.question5.png)
 
 ---
 
@@ -625,7 +625,7 @@ SELECT name,
  FROM teacher
 ```
 
-![Q8.q6](Quiz8.question6.png)
+![Q8.q6](assets/quiz_answers/Quiz8.question6.png)
 
 
 <div align="right">
