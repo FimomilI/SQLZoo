@@ -13,12 +13,12 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [3 SELECT from Nobel (last edited 20/07/2025)](#3-select-from-nobel-last-edited-20072025)
 - [4 SELECT within SELECT Tutorial (last edited 20/07/2025)](#4-select-within-select-tutorial-last-edited-20072025)
 - [5 SUM and COUNT (last edited 22/07/2025)](#5-sum-and-count-last-edited-22072025)
-- [\*The nobel table can be used to practice more SUM and COUNT functions](#the-nobel-table-can-be-used-to-practice-more-sum-and-count-functions)
-- [6 The JOIN operation](#6-the-join-operation)
-- [\*Old JOIN Tutorial](#old-join-tutorial)
-- [\*Music Tutorial](#music-tutorial)
-- [7 More JOIN operations](#7-more-join-operations)
-- [8 Using Null](#8-using-null)
+- [\*The nobel table can be used to practice more SUM and COUNT functions (last edited 23/07/2025)](#the-nobel-table-can-be-used-to-practice-more-sum-and-count-functions-last-edited-23072025)
+- [6 The JOIN operation (last edited 24/07/2025)](#6-the-join-operation-last-edited-24072025)
+- [\*Old JOIN Tutorial (last edited 25/07/2025)](#old-join-tutorial-last-edited-25072025)
+- [\*Music Tutorial (last edited 26/07/2025)](#music-tutorial-last-edited-26072025)
+- [7 More JOIN operations (last edited 27/07/2025)](#7-more-join-operations-last-edited-27072025)
+- [8 Using Null (last edited 30/07/2025)](#8-using-null-last-edited-30072025)
 - [\*Scottish Parliament](#scottish-parliament)
 - [8+ NSS Tutorial (Numeric Examples)](#8-nss-tutorial-numeric-examples)
 - [9- Window functions](#9--window-functions)
@@ -1086,7 +1086,7 @@ HAVING SUM(population) > 100000000
 
 
 
-## *The nobel table can be used to practice more SUM and COUNT functions
+## *The nobel table can be used to practice more SUM and COUNT functions (last edited 23/07/2025)
 
 Another tutorial for aggregate functions (<https://sqlzoo.net/wiki/The_nobel_table_can_be_used_to_practice_more_SUM_and_COUNT_functions.>) using the Nobel table introduced in the [SELECT basics section](#0-select-basics-last-edited-20072025)
 
@@ -1248,7 +1248,7 @@ HAVING COUNT(winner) = 3
 
 
 
-## 6 The JOIN operation
+## 6 The JOIN operation (last edited 24/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/The_JOIN_operation>.
 
@@ -1470,7 +1470,7 @@ SELECT game.mdate,
 
 
 
-## *Old JOIN Tutorial
+## *Old JOIN Tutorial (last edited 25/07/2025)
 
 Another older tutorial for JOIN operations (<https://sqlzoo.net/wiki/Old_JOIN_Tutorial>).
 
@@ -1625,7 +1625,7 @@ SELECT team.name
 
 
 
-## *Music Tutorial
+## *Music Tutorial (last edited 26/07/2025)
 
 Yet another (older) tutorial for JOIN operations (<https://sqlzoo.net/wiki/Music_Tutorial>).
 
@@ -1782,7 +1782,7 @@ SELECT album.title, COUNT(album.asin) AS track_count
 
 
 
-## 7 More JOIN operations
+## 7 More JOIN operations (last edited 27/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/More_JOIN_operations>.
 
@@ -2073,7 +2073,7 @@ SELECT actor.name
 
 
 
-## 8 Using Null
+## 8 Using Null (last edited 30/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Using_Null>.
 

@@ -12,10 +12,10 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 - [2. BBC Quiz](#2-bbc-quiz)
 - [3. Nobel Quiz](#3-nobel-quiz)
 - [4. Nested SELECT Quiz](#4-nested-select-quiz)
-- [5. SUM and COUNT Quiz](#5-sum-and-count-quiz)
-- [6. JOIN Quiz](#6-join-quiz)
-- [7. JOIN Quiz 2](#7-join-quiz-2)
-- [8. Using Null Quiz](#8-using-null-quiz)
+- [5. SUM and COUNT Quiz (last edited 22/07/2025)](#5-sum-and-count-quiz-last-edited-22072025)
+- [6. JOIN Quiz (last edited 27/07/2025)](#6-join-quiz-last-edited-27072025)
+- [7. JOIN Quiz 2 (last edited 29/07/2025)](#7-join-quiz-2-last-edited-29072025)
+- [8. Using Null Quiz (last edited 30/07/2025)](#8-using-null-quiz-last-edited-30072025)
 - [9. Self JOIN Quiz](#9-self-join-quiz)
 
 
@@ -296,7 +296,7 @@ Webpage: <https://sqlzoo.net/wiki/Nested_SELECT_Quiz>.
 
 
 
-## 5. SUM and COUNT Quiz
+## 5. SUM and COUNT Quiz (last edited 22/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz>.
 
@@ -387,7 +387,7 @@ Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz>.
 
 
 
-## 6. JOIN Quiz
+## 6. JOIN Quiz (last edited 27/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
 
@@ -469,7 +469,7 @@ HAVING COUNT(*) < 3
 
 
 
-## 7. JOIN Quiz 2
+## 7. JOIN Quiz 2 (last edited 29/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz_2>.
 
@@ -555,7 +555,7 @@ SELECT title, yr
 
 
 
-## 8. Using Null Quiz
+## 8. Using Null Quiz (last edited 30/07/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Using_Null_Quiz>.
 
