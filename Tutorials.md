@@ -2077,103 +2077,158 @@ SELECT actor.name
 
 Webpage: <https://sqlzoo.net/wiki/Using_Null>.
 
+<div align="center">
+
+  ![School Database](assets/School_Database.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. List the teachers who have NULL for their department
 
 ```SQL
-
+SELECT name
+  FROM teacher
+ WHERE dept IS NULL
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. Note the INNER JOIN misses the teachers with no department and the departments with no teacher
 
 ```SQL
-
+SELECT teacher.name, dept.name
+  FROM teacher
+ INNER JOIN dept ON (teacher.dept = dept.id)
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. Use a different JOIN so that all teachers are listed
 
 ```SQL
-
+SELECT teacher.name, dept.name
+  FROM teacher
+  LEFT JOIN dept ON (teacher.dept = dept.id)
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. Use a different JOIN so that all departments are listed
 
 ```SQL
+SELECT teacher.name, dept.name
+  FROM teacher
+ RIGHT JOIN dept ON (teacher.dept = dept.id)
+```
 
+> Alternative query
+>
+> ```SQL
+> SELECT teacher.name, dept.name
+>   FROM dept
+>   LEFT JOIN teacher ON (dept.id = teacher.dept)
+> ```
+
+---
+
+
+<!-- omit in toc -->
+### 5. Use COALESCE to print the mobile number. Use the number '07986 444 2266' if there is no number given. _Show teacher name and mobile number or '07986 444 2266'_
+
+```SQL
+SELECT name, COALESCE(mobile, '07986 444 2266') as mobile
+  FROM teacher
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 6. Use the COALESCE function and a LEFT JOIN to print the teacher _name_ and department name. Use the string 'None' where there is no department
 
 ```SQL
-
+SELECT teacher.name, COALESCE(dept.name, 'None') AS department
+  FROM teacher
+  LEFT JOIN dept ON (teacher.dept = dept.id)
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 7. Use COUNT to show the number of teachers and the number of mobile phones
 
 ```SQL
-
+SELECT COUNT(name), COUNT(mobile)
+  FROM teacher
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 8. Use COUNT and GROUP BY _dept.name_ to show each department and the number of staff. Use a RIGHT JOIN to ensure that the Engineering department is listed
 
 ```SQL
+SELECT dept.name, COUNT(teacher.name)
+  FROM teacher
+ RIGHT JOIN dept ON (dept.id = teacher.dept)
+ GROUP BY dept.name
+```
 
+> Alternative query (because I do not agree with `RIGHT JOIN` when `LEFT JOIN` makes more sense to me simply because `dept.name` is selected first, so I prefer `FROM dept JOIN ...`)
+>
+> ```SQL
+> SELECT dept.name, COUNT(teacher.name)
+>   FROM dept
+>   LEFT JOIN teacher ON (dept.id = teacher.dept)
+>  GROUP BY dept.name
+> ```
+
+
+---
+
+
+<!-- omit in toc -->
+### 9. Use CASE to show the _name_ of each teacher followed by 'Sci' if the teacher is in _dept_ 1 or 2 and 'Art' otherwise
+
+```SQL
+SELECT name,
+       (CASE WHEN dept IN (1, 2) THEN 'Sci' ELSE 'Art' END) AS department
+  FROM teacher
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 8.
+### 10. Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2, show 'Art' if the teacher's dept is 3 and 'None' otherwise
 
 ```SQL
-
+SELECT name,
+       (CASE WHEN dept IN (1,2) THEN 'Sci'
+             WHEN dept  = 3     THEN 'Art'
+             ELSE 'None'
+         END) AS department
+  FROM teacher
 ```
 
----
-
-
-<!-- omit in toc -->
-### 9.
-
-```SQL
-
-```
-
----
-
-
-<!-- omit in toc -->
-### 10.
-
-```SQL
-
-```
+> Alternative query (Probably should just stick to `WHEN`/`ELSE`)
+>
+> ```SQL
+> SELECT name,
+>        COALESCE(CASE WHEN dept IN (1, 2) THEN 'Sci'
+>                      WHEN dept = 3       THEN 'Art' END, 'None') AS department
+>   FROM teacher
+> ```
 
 
 <br />
