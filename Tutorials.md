@@ -19,7 +19,7 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [\*Music Tutorial (last edited 26/07/2025)](#music-tutorial-last-edited-26072025)
 - [7 More JOIN operations (last edited 27/07/2025)](#7-more-join-operations-last-edited-27072025)
 - [8 Using Null (last edited 30/07/2025)](#8-using-null-last-edited-30072025)
-- [\*Scottish Parliament](#scottish-parliament)
+- [\*Scottish Parliament (last edited 31/07/2025)](#scottish-parliament-last-edited-31072025)
 - [8+ NSS Tutorial (Numeric Examples)](#8-nss-tutorial-numeric-examples)
 - [9- Window functions](#9--window-functions)
 - [9+ Window LAG (COVID 19)](#9-window-lag-covid-19)
@@ -2250,76 +2250,112 @@ SELECT name,
 
 
 
-## *Scottish Parliament
+
+## *Scottish Parliament (last edited 31/07/2025)
 
 The previous tutorial on using Null (<https://sqlzoo.net/wiki/Scottish_Parliament>).
 
+Scottisch Parliment Database
+
+<div align="center">
+
+  ![Scottish Parliment Database](assets/Scottish_Parliment_Database.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. One MSP was kicked out of the Labour party and has no party. Find him
 
 ```SQL
-
+SELECT name
+  FROM msp
+ WHERE party IS NULL
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. Obtain a list of all parties and leaders
 
 ```SQL
-
+SELECT name, leader
+  FROM party
+ GROUP BY name, leader
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. Give the party and the leader for the parties which have leaders
 
 ```SQL
+SELECT name, leader
+  FROM party
+ GROUP BY name, leader
+ HAVING leader IS NOT NULL
+```
 
+> Alternative query
+>
+> ```SQL
+> SELECT name, leader
+>   FROM party
+>  WHERE leader IS NOT NULL
+>  GROUP BY name, leader
+>```
+
+---
+
+
+<!-- omit in toc -->
+### 4. Obtain a list of all parties which have at least one MSP
+
+```SQL
+SELECT DISTINCT party.name
+  FROM party
+  JOIN msp ON (party.code = msp.party)
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 5. Obtain a list of all MSPs by name, give the name of the MSP and the name of the party where available. Be sure that `Canavan MSP, Dennis` is in the list. Use ORDER BY msp.name to sort your output by MSP
 
 ```SQL
-
+SELECT msp.name, party.name
+  FROM msp
+  LEFT JOIN party ON (msp.party = party.code)
+ ORDER BY msp.name
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 6. Obtain a list of parties which have MSPs, include the number of MSPs
 
 ```SQL
-
+SELECT party.name, COUNT(msp.name)
+  FROM party
+  JOIN msp ON (party.code = msp.party)
+ GROUP BY party.name
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 7. A list of parties with the number of MSPs; include parties with no MSPs
 
 ```SQL
-
-```
-
----
-
-
-<!-- omit in toc -->
-### 7.
-
-```SQL
-
+SELECT party.name, COUNT(msp.name)
+  FROM party
+  LEFT JOIN msp ON (party.code = msp.party)
+ GROUP BY party.name
 ```
 
 
