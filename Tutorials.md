@@ -1072,7 +1072,7 @@ HAVING SUM(population) > 100000000
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying SUM and COUNT Quiz***_](./Quizes.md#5-sum-and-count-quiz)
+> [_***Accompanying SUM and COUNT Quiz***_](./Quizes.md#5-sum-and-count-quiz-last-edited-22072025)
 >
 > </div>
 
@@ -1456,7 +1456,7 @@ SELECT game.mdate,
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying JOIN Quiz***_](./Quizes.md#6-join-quiz)
+> [_***Accompanying JOIN Quiz***_](./Quizes.md#6-join-quiz-last-edited-27072025)
 >
 > </div>
 
@@ -2058,7 +2058,7 @@ SELECT actor.name
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying JOIN Quiz 2***_](./Quizes.md#7-join-quiz-2)
+> [_***Accompanying JOIN Quiz 2***_](./Quizes.md#7-join-quiz-2-last-edited-29072025)
 >
 > </div>
 
@@ -2236,7 +2236,7 @@ SELECT name,
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying Using Null Quiz***_](./Quizes.md#8-using-null-quiz)
+> [_***Accompanying Using Null Quiz***_](./Quizes.md#8-using-null-quiz-last-edited-30072025)
 >
 > </div>
 
