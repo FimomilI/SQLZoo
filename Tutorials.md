@@ -36,7 +36,7 @@ Introducing the world table of countries
 
 <div id="header" align="center">
 
-  ![world_table](./assets/world_table.png)
+  ![world_table](./assets/tutorial_databases_infographics/world_table.png)
 
 </div>
 
@@ -502,7 +502,7 @@ SELECT name
 Webpage: <https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial>.
 
 
-![nobel_table](assets/nobel_table.png)
+![nobel_table](assets/tutorial_databases_infographics/nobel_table.png)
 
 
 <!-- omit in toc -->
@@ -1256,7 +1256,7 @@ UEFA EURO 2012 tables,
 
 <div id="header" align="center">
 
-  ![UEFA EURA 2012 tables](assets/UEFA_EURO_2012_tables.png)
+  ![UEFA EURA 2012 tables](assets/tutorial_databases_infographics/UEFA_EURO_2012_tables.png)
 
 </div>
 
@@ -1478,7 +1478,7 @@ The Table Tennis Olympics Database
 
 <div align="center">
 
-  ![Table Tennis Olympics Database](assets/Table_Tennis_Olympics_Database.png)
+  ![Table Tennis Olympics Database](assets/tutorial_databases_infographics/Table_Tennis_Olympics_Database.png)
 
 </div>
 
@@ -1486,7 +1486,7 @@ The Woman's Singles Table Tennis Olympics Database
 
 <div align="center">
 
-  ![Woman's Singles Table Tennis Olympics Database](assets/Womans_Singles_Table_Tennis_Olympics_Database.png)
+  ![Woman's Singles Table Tennis Olympics Database](assets/tutorial_databases_infographics/Womans_Singles_Table_Tennis_Olympics_Database.png)
 
 </div>
 
@@ -1494,7 +1494,7 @@ The Table Tennis Mens Doubles
 
 <div align="center">
 
-  ![Table Tennis Mens Doubles Database](assets/Table_Tennis_Mens_Doubles.png)
+  ![Table Tennis Mens Doubles Database](assets/tutorial_databases_infographics/Table_Tennis_Mens_Doubles.png)
 
 </div>
 
@@ -1633,7 +1633,7 @@ The Music Database
 
 <div align="center">
 
-  ![Music Database](assets/Music_Database.png)
+  ![Music Database](assets/tutorial_databases_infographics/Music_Database.png)
 
 </div>
 
@@ -1790,7 +1790,7 @@ The Movie database
 
 <div align="center">
 
-  ![Movie Database](assets/Movie_Database.png)
+  ![Movie Database](assets/tutorial_databases_infographics/Movie_Database.png)
 
 </div>
 
@@ -2079,7 +2079,7 @@ Webpage: <https://sqlzoo.net/wiki/Using_Null>.
 
 <div align="center">
 
-  ![School Database](assets/School_Database.png)
+  ![School Database](assets/tutorial_databases_infographics/School_Database.png)
 
 </div>
 
@@ -2259,7 +2259,7 @@ Scottisch Parliment Database
 
 <div align="center">
 
-  ![Scottish Parliment Database](assets/Scottish_Parliment_Database.png)
+  ![Scottish Parliment Database](assets/tutorial_databases_infographics/Scottish_Parliment_Database.png)
 
 </div>
 
