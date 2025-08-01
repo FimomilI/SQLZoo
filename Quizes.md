@@ -8,7 +8,7 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 <!-- omit in toc -->
 ## Table of Contents
 
-- [1. SELECT Quiz](#1-select-quiz)
+- [1. SELECT Quiz (last edited 01/08/2025)](#1-select-quiz-last-edited-01082025)
 - [2. BBC Quiz](#2-bbc-quiz)
 - [3. Nobel Quiz](#3-nobel-quiz)
 - [4. Nested SELECT Quiz](#4-nested-select-quiz)
@@ -20,63 +20,81 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 
 
-## 1. SELECT Quiz
+## 1. SELECT Quiz (last edited 01/08/2025)
 
 Webpage <https://sqlzoo.net/wiki/SELECT_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the code which produces this table
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q1q1](assets/quiz_answers/Quiz1.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Pick the result you would obtain from this code
 
+```SQL
+SELECT name, population
+FROM world
+WHERE name LIKE "Al%"
+```
 
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q1q2](assets/quiz_answers/Quiz1.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the code which shows the countries that end in A or L
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q1q3](assets/quiz_answers/Quiz1.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Pick the result from the query
+
+```SQL
+SELECT name,length(name)
+FROM world
+WHERE length(name)=5 and region='Europe'
+```
+
+![Q1q4](assets/quiz_answers/Quiz1.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Here are the first few rows of the world table
+
+![Q1q5table](assets/quiz_answers/Quiz1.question5.table.png)
+
+```SQL
+SELECT name, area*2 FROM world WHERE population = 64000
+```
+
+![Q1q5](assets/quiz_answers/Quiz1.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the code that would show the countries with an area larger than 50000 and a population smaller than 10000000
+
+![Q1q6](assets/quiz_answers/Quiz1.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Select the code that shows the population density of China, Australia, Nigeria and France
+
+![Q1q7](assets/quiz_answers/Quiz1.question7.png)
 
 
 <div align="right">
