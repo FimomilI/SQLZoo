@@ -2216,7 +2216,7 @@ SELECT name,
 SELECT name,
        (CASE WHEN dept IN (1,2) THEN 'Sci'
              WHEN dept  = 3     THEN 'Art'
-             ELSE 'None'
+                                ELSE 'None'
          END) AS department
   FROM teacher
 ```
