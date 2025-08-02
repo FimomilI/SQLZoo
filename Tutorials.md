@@ -21,7 +21,7 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [8 Using Null (last edited 30/07/2025)](#8-using-null-last-edited-30072025)
 - [\*Scottish Parliament (last edited 31/07/2025)](#scottish-parliament-last-edited-31072025)
 - [8+ NSS Tutorial (Numeric Examples) (last edited 01/08/2025)](#8-nss-tutorial-numeric-examples-last-edited-01082025)
-- [9- Window functions](#9--window-functions)
+- [9- Window functions (last edited 02/08/2025)](#9--window-functions-last-edited-02082025)
 - [9+ Window LAG (COVID 19)](#9-window-lag-covid-19)
 - [9 Self Join](#9-self-join)
 
@@ -2530,66 +2530,107 @@ SELECT total.institution,
 
 
 
-## 9- Window functions
+## 9- Window functions (last edited 02/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Window_functions>.
 
+Generlan Elections table
+
+<div align="center">
+
+  ![General Elections table](assets/tutorial_databases_infographics/General_Elections_table.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. Show the _lastName_, _party_ and _votes_ for the _constituency_ 'S14000024' in 2017
 
 ```SQL
-
+SELECT lastName, party, votes
+  FROM ge
+ WHERE constituency = 'S14000024'
+   AND yr = 2017
+ ORDER BY votes DESC
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. You can use the RANK function to see the order of the candidates. If you RANK using (ORDER BY votes DESC) then the candidate with the most votes has rank 1. _Show the party and RANK for constituency S14000024 in 2017. List the output by party_
 
 ```SQL
-
+SELECT party, votes,
+       RANK() OVER (ORDER BY votes DESC) as posn
+  FROM ge
+ WHERE constituency = 'S14000024'
+   AND yr = 2017
+ GROUP BY party
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. The 2015 election is a different PARTITION to the 2017 election. We only care about the order of votes for each year. _Use PARTITION to show the ranking of each party in S14000021 in each year. Include yr, party, votes and ranking (the party with the most votes is 1)_
 
 ```SQL
-
+SELECT yr, party, votes,
+       RANK() OVER (PARTITION BY yr ORDER BY votes DESC) as posn
+  FROM ge
+ WHERE constituency = 'S14000021'
+ ORDER BY party, yr
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. Edinburgh constituencies are numbered S14000021 to S14000026. _Use PARTITION BY constituency to show the ranking of each party in Edinburgh in 2017. Order your results so the winners are shown first, then ordered by constituency_
 
 ```SQL
-
+SELECT constituency, party, votes,
+       RANK() OVER (PARTITION BY constituency ORDER BY votes DESC) AS posn
+  FROM ge
+ WHERE yr = 2017
+   AND constituency BETWEEN 'S14000021' AND 'S14000026'
+ ORDER BY posn, constituency
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 5. You can use SELECT within SELECT to pick out only the winners in Edinburgh. _Show the parties that won for each Edinburgh constituency in 2017_
 
 ```SQL
-
+SELECT constituency, party
+  FROM (SELECT constituency, party,
+               RANK() OVER (PARTITION BY constituency ORDER BY votes DESC) AS posn
+          FROM ge
+         WHERE constituency BETWEEN 'S14000021' AND 'S14000026'
+           AND yr = 2017
+       ) AS ge_Edinburgh
+ WHERE posn = 1
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 6. You can use COUNT and GROUP BY to see how each party did in Scotland. Scottish constituencies start with 'S'. _Show how many seats for each party in Scotland in 2017_
 
 ```SQL
-
+SELECT party, COUNT(*)
+  FROM (SELECT party,
+               RANK() OVER (PARTITION BY constituency ORDER BY votes DESC) AS posn
+          FROM ge
+         WHERE constituency LIKE 'S%'
+           AND yr = 2017
+       ) AS ge_Scotland
+ WHERE posn = 1
+ GROUP BY party
 ```
 
 <div align="right">
