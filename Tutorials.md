@@ -22,7 +22,7 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [\*Scottish Parliament (last edited 31/07/2025)](#scottish-parliament-last-edited-31072025)
 - [8+ NSS Tutorial (Numeric Examples) (last edited 01/08/2025)](#8-nss-tutorial-numeric-examples-last-edited-01082025)
 - [9- Window functions (last edited 02/08/2025)](#9--window-functions-last-edited-02082025)
-- [9+ Window LAG (COVID 19)](#9-window-lag-covid-19)
+- [9+ Window LAG (COVID 19) (last edited 04/08/2025)](#9-window-lag-covid-19-last-edited-04082025)
 - [9 Self Join](#9-self-join)
 
 
@@ -2643,87 +2643,215 @@ SELECT party, COUNT(*)
 
 
 
-## 9+ Window LAG (COVID 19)
+## 9+ Window LAG (COVID 19) (last edited 04/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Window_LAG>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. The example uses a WHERE clause to show the cases in 'Italy' in March 2020. _Modify the query to show data from Spain_
 
 ```SQL
-
+SELECT name, DAY(whn), confirmed, deaths, recovered
+  FROM covid
+ WHERE name = 'Spain'
+   AND MONTH(whn) = 3
+   AND YEAR(whn) = 2020
+ ORDER BY whn
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. The LAG function is used to show data from the preceding row or the table. When lining up rows the data is partitioned by country name and ordered by the data whn. That means that only data from Italy is considered. _Modify the query to show confirmed for the day before_
 
 ```SQL
-
+SELECT name, DAY(whn), confirmed,
+       LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn) AS dbf
+  FROM covid
+ WHERE name = 'Italy'
+   AND MONTH(whn) = 3
+   AND YEAR(whn) = 2020
+ ORDER BY whn
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. The number of confirmed case is cumulative - but we can use LAG to recover the number of new cases reported for each day. _Show the number of new cases for each day, for Italy, for March_
 
 ```SQL
-
+SELECT name, DAY(whn),
+       (confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn)) AS new
+  FROM covid
+ WHERE name = 'Italy'
+   AND MONTH(whn) = 3
+   AND YEAR(whn) = 2020
+ ORDER BY whn
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. The data gathered are necessarily estimates and are inaccurate. However by taking a longer time span we can mitigate some of the effects. You can filter the data to view only Monday's figures _WHERE WEEKDAY(whn) = 0_. _Show the number of new cases in Italy for each week in 2020 - show Monday only_
 
 ```SQL
-
+SELECT name, DATE_FORMAT(whn,'%Y-%m-%d'),
+       (confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn)) AS new
+  FROM covid
+ WHERE name = 'Italy'
+   AND WEEKDAY(whn) = 0
+   AND YEAR(whn) = 2020
+ ORDER BY whn
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 5. You can JOIN a table using DATE arithmetic. This will give different results if data is missing. _Show the number of new cases in Italy for each week - show Monday only._ In the sample query we JOIN this week _tw_ with last week _lw_ using the DATE_ADD function
 
 ```SQL
+SELECT tw.name, DATE_FORMAT(tw.whn,'%Y-%m-%d'),
+       tw.confirmed - lw.confirmed
+  FROM covid AS tw
+  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn)
+                       AND (tw.name = lw.name)
+ WHERE tw.name = 'Italy'
+   AND WEEKDAY(tw.whn) = 0
+ ORDER BY tw.whn
+```
 
+> [!WARNING]
+>
+> The query:
+>
+> ```SQL
+> ...
+>  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn)
+>                       AND (tw.name = lw.name)
+> WHERE tw.name = 'Italy'
+>   AND WEEKDAY(tw.whn) = 0
+> ...
+> ```
+>
+> is **NOT** the same as
+>
+> ```SQL
+> ...
+>  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn)
+> WHERE tw.name = 'Italy'
+>   AND WEEKDAY(tw.whn) = 0
+>   AND tw.name = lw.name
+> ...
+> ```
+>
+> becaus if the `AND tw.name = lw.name` condition is applied in the `ON` clause instead of the `WHERE` clause, ***all*** records from the `tw` table show up, since it is a "*LEFT*" `JOIN`, i.e., all rows of the `tw` table are selected, even if there is no matching row in the `lw` table. Because of `DATE_ADD(lw.whn, INTERVAL 1 WEEK)`, the first row of `lw` will be the second row of `tw` and therefore the first entry in the `LEFT JOIN`ed table will have a `null` for `tw.confirmed - lw.confirmed`.
+>
+> In the second query the `AND tw.name = lw.name` condition in the `WHERE` clause makes it such that this `null` row is also removed because `(lw.name = null) != (tw.name = 'Italy')`.
+
+> Alternative query (using window function `LAG` seems easiest though)
+>
+> ```SQL
+> SELECT name, DATE_FORMAT(whn, '%Y-%m-%d'),
+>        confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn ASC)
+>   FROM covid
+>  WHERE name = 'Italy'
+>    AND WEEKDAY(whn) = 0
+>  ORDER BY whn ASC
+> ```
+
+---
+
+
+<!-- omit in toc -->
+### 6. This query shows the number of confirmed cases together with the world ranking for cases for the date '2020-04-20'. The number of COVID deaths is also shown. United States has the highest number, Spain is number 2... Notice that while Spain has the second highest confirmed cases, Italy has the second highest number of deaths due to the virus. _Add a column to show the ranking for the number of deaths due to COVID._
+
+```SQL
+SELECT name, confirmed,
+       RANK() OVER (ORDER BY confirmed DESC) AS rc,
+       deaths,
+       RANK() OVER (ORDER BY deaths DESC) as rd
+  FROM covid
+ WHERE whn = '2020-04-20'
+ ORDER BY confirmed DESC
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 7. This query includes a JOIN t the world table so we can access the total population of each country and calculate infection rates (in cases per 100,000). _Show the infection rate ranking for each country. Only include countries with a population of at least 10 million_
 
 ```SQL
+WITH per_10000000 AS (
+  SELECT world.name, covid.whn, world.population,
+         covid.confirmed / (world.population / 100000) AS infection_rate
+    FROM world
+    JOIN covid ON (world.name = covid.name)
+   WHERE world.population > 10000000
+)
 
+SELECT name, ROUND(infection_rate, 2),
+       RANK() OVER (ORDER BY infection_rate ASC) AS infection_rate_rank
+  FROM per_10000000
+ WHERE whn = '2020-04-20'
+ ORDER BY population DESC
 ```
+
+> [!NOTE]
+> That `ROUND()` is NOT used in the definition of `infection_rate` in the `per_10000000` table, which would cause premature rounding for the `RANK()` function used later, but rather only applied to the view of that column.
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 8. For each country that has had at least 20000 new cases in a single day, show name of country, the date of the peak number of new cases and the peak value
 
 ```SQL
-
+WITH covidPlusNewCases AS (
+  SELECT name, whn,
+         confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn ASC) AS peakNewCases
+    FROM covid
+),
+covidPlusNewCasesAndRankForLargePopulation AS (
+  SELECT name, whn, peakNewCases,
+         ROW_NUMBER() OVER (PARTITION BY name ORDER BY peakNewCases DESC) AS rankNewCases
+    FROM covidPlusNewCases
+   WHERE peakNewCases > 20000
+)
+SELECT name, DATE_FORMAT(whn,'%Y-%m-%d'), peakNewCases
+  FROM covidPlusNewCasesAndRankForLargePopulation
+ WHERE rankNewCases = 1
 ```
 
----
+> [!NOTE]
+> Using `ROW_NUMBER()` instead of `RANK()` because I don't care about any other rank than the 1st one and ROW_NUMBER() should have less performance overhead as it does not need to keep track of ties.
 
-
-<!-- omit in toc -->
-### 8.
-
-```SQL
-
-```
+> Alternative query (faster performance because window functions aren't very performant)
+>
+> ```SQL
+> WITH covidPlusNewCases AS (
+>   SELECT name, whn,
+>          confirmed - LAG(confirmed, 1) OVER (PARTITION BY name ORDER BY whn ASC) AS peakNewCases
+>     FROM covid
+> ),
+> peakPerName AS (
+>   SELECT name, MAX(peakNewCases) AS maxPeak
+>     FROM covidPlusNewCases
+>    WHERE peakNewCases > 20000
+>    GROUP BY name
+> )
+> 
+> SELECT c.name, DATE_FORMAT(c.whn, '%Y-%m-%d'), p.maxPeak
+>   FROM covidPlusNewCases AS c
+>   JOIN peakPerName AS p ON (c.name         = p.name)
+>                        AND (c.peakNewCases = p.maxPeak)
+>  ORDER BY c.name
+> ```
 
 <div align="right">
 
