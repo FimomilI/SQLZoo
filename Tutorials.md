@@ -81,7 +81,7 @@ SELECT name, area
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying SELECT Quiz***_](./Quizes.md#1-select-quiz)
+> [_***Accompanying SELECT Quiz***_](./Quizzes.md#1-select-quiz)
 >
 > </div>
 
@@ -482,7 +482,7 @@ SELECT name
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying BBC Quiz***_](./Quizes.md#2-bbc-quiz)
+> [_***Accompanying BBC Quiz***_](./Quizzes.md#2-bbc-quiz)
 >
 > </div>
 
@@ -726,7 +726,7 @@ SELECT winner, subject
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying Nobel Quiz***_](./Quizes.md#3-nobel-quiz)
+> [_***Accompanying Nobel Quiz***_](./Quizzes.md#3-nobel-quiz)
 >
 > </div>
 
@@ -937,7 +937,7 @@ SELECT name, continent
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying Nested SELECT Quiz***_](./Quizes.md#4-nested-select-quiz)
+> [_***Accompanying Nested SELECT Quiz***_](./Quizzes.md#4-nested-select-quiz)
 >
 > </div>
 
@@ -1072,7 +1072,7 @@ HAVING SUM(population) > 100000000
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying SUM and COUNT Quiz***_](./Quizes.md#5-sum-and-count-quiz-last-edited-22072025)
+> [_***Accompanying SUM and COUNT Quiz***_](./Quizzes.md#5-sum-and-count-quiz-last-edited-22072025)
 >
 > </div>
 
@@ -1456,7 +1456,7 @@ SELECT game.mdate,
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying JOIN Quiz***_](./Quizes.md#6-join-quiz-last-edited-27072025)
+> [_***Accompanying JOIN Quiz***_](./Quizzes.md#6-join-quiz-last-edited-27072025)
 >
 > </div>
 
@@ -2058,7 +2058,7 @@ SELECT actor.name
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying JOIN Quiz 2***_](./Quizes.md#7-join-quiz-2-last-edited-29072025)
+> [_***Accompanying JOIN Quiz 2***_](./Quizzes.md#7-join-quiz-2-last-edited-29072025)
 >
 > </div>
 
@@ -2236,7 +2236,7 @@ SELECT name,
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying Using Null Quiz***_](./Quizes.md#8-using-null-quiz-last-edited-30072025)
+> [_***Accompanying Using Null Quiz***_](./Quizzes.md#8-using-null-quiz-last-edited-30072025)
 >
 > </div>
 
@@ -3056,7 +3056,7 @@ SELECT x.num, x.company, x.transfer_stop, y.num, y.company
 > [!NOTE]
 > <div align="center">
 >
-> [_***Accompanying Self Join Quiz***_](./Quizes.md#9-self-join-quiz)
+> [_***Accompanying Self Join Quiz***_](./Quizzes.md#9-self-join-quiz)
 >
 > </div>
 
