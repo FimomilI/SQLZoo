@@ -2718,8 +2718,8 @@ SELECT name, DATE_FORMAT(whn,'%Y-%m-%d'),
 SELECT tw.name, DATE_FORMAT(tw.whn,'%Y-%m-%d'),
        tw.confirmed - lw.confirmed
   FROM covid AS tw
-  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn)
-                       AND (tw.name = lw.name)
+  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn
+                        AND tw.name = lw.name)
  WHERE tw.name = 'Italy'
    AND WEEKDAY(tw.whn) = 0
  ORDER BY tw.whn
@@ -2731,8 +2731,8 @@ SELECT tw.name, DATE_FORMAT(tw.whn,'%Y-%m-%d'),
 >
 > ```SQL
 > ...
->  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn)
->                       AND (tw.name = lw.name)
+>  LEFT JOIN covid AS lw ON (DATE_ADD(lw.whn, INTERVAL 1 WEEK) = tw.whn
+>                        AND tw.name = lw.name)
 > WHERE tw.name = 'Italy'
 >   AND WEEKDAY(tw.whn) = 0
 > ...
@@ -2861,46 +2861,65 @@ SELECT name, DATE_FORMAT(whn,'%Y-%m-%d'), peakNewCases
 
 
 
-## 9 Self Join
+## 9 Self Join (last edited 05/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Self_join>.
 
+Edinburgh Buses database
+
+<div align="center">
+
+  ![alt text](assets/tutorial_databases_infographics/Edingburgh_Buses_Database.png)
+
+</div>
+
 
 <!-- omit in toc -->
-### 1.
+### 1. How many _stops_ are in the database
 
 ```SQL
-
+SELECT COUNT(id)
+  FROM stops
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 2.
+### 2. Find the _id_ value for the stop 'Craiglockhart'
 
 ```SQL
-
+SELECT id
+  FROM stops
+ WHERE name = 'Craiglockhart'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 3. Give the _id_ and the _name_ for the _stops_ on the '4' 'LRT' service
 
 ```SQL
-
+SELECT stops.id, stops.name
+  FROM stops
+  JOIN route ON (stops.id = route.stop)
+ WHERE route.company = 'LRT'
+   AND route.num = '4'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 4.
+### 4. The query shown gives the number of routes that visit either London Road (149) or Craiglockhart (53). Run the query and notice the two services that link these _stops_ have a count of 2. Add a HAVING clause to restrict the output to these two routes
 
 ```SQL
-
+SELECT company, num, COUNT(*) AS link_count
+  FROM route
+ WHERE (stop = 149 OR stop = 53)
+ GROUP BY company, num
+HAVING link_count = 2
 ```
 
 ---
@@ -2910,59 +2929,127 @@ Webpage: <https://sqlzoo.net/wiki/Self_join>.
 ### 5.
 
 ```SQL
-
+SELECT a.company, a.num, a.stop, b.stop
+  FROM route AS a
+  JOIN route AS b ON (a.company = b.company
+                  AND a.num     = b.num)
+ WHERE a.stop = (SELECT id
+                   FROM stops
+                  WHERE name = 'Craiglockhart')
+   AND b.stop = (SELECT id
+                   FROM stops
+                  WHERE name = 'London Road')
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 6.
+### 6. The query shown is similar to the previous one, however by joining two copies of the stops table we can refer to stops by name rather than by number. Change the query so that the services between 'Craiglockhart' and 'London Road' are shown. If you are tired of these places try 'Fairmilehead' against 'Tollcross'
 
 ```SQL
-
+SELECT a.company, a.num, stopa.name, stopb.name
+  FROM route AS a
+  JOIN route AS b ON (a.company = b.company
+                  AND a.num     = b.num)
+  JOIN stops AS stopa ON (a.stop = stopa.id)
+  JOIN stops AS stopb ON (b.stop = stopb.id)
+ WHERE stopa.name = 'Craiglockhart'
+   AND stopb.name = 'London Road'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 7. Give a list of all the services which connect stops 115 and 137 ('Haymarket' and 'Leith')
 
 ```SQL
-
+SELECT DISTINCT a.company, a.num
+  FROM route AS a
+  JOIN route AS b ON (a.company = b.company
+                  AND a.num     = b.num)
+ WHERE a.stop = 115
+   AND b.stop = 137
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 8.
+### 8. Give a list of the services which connect the _stops_ 'Craiglockhart' and 'Tollcross'
 
 ```SQL
+SELECT DISTINCT a.company, a.num
+  FROM route AS a
+  JOIN route AS b ON (a.company = b.company
+                  AND a.num     = b.num)
+ WHERE a.stop = (SELECT id
+                   FROM stops
+                  WHERE name = 'Craiglockhart')
+   AND b.stop = (SELECT id
+                   FROM stops
+                  WHERE name = 'Tollcross')
+```
 
+> Alternative query (which may be more readable/better performance)
+>
+> ```SQL
+> SELECT DISTINCT a.company, a.num
+>   FROM route AS a
+>   JOIN route AS b ON (a.company = b.company
+>                   AND a.num     = b.num)
+>   JOIN stops AS stopa ON (a.stop = stopa.id)
+>   JOIN stops AS stopb ON (b.stop = stopb.id)
+>  WHERE stopa.name = 'Craiglockhart'
+>    AND stopb.name = 'Tollcross'
+> ```
+
+---
+
+
+<!-- omit in toc -->
+### 9. Give a distinct list of the _stops_ which may be reached from 'Craiglockhart' by taking one bus, including 'Craiglockhart' itself, offered by the LRT company. Include the company and bus no. of the relevant services
+
+```SQL
+SELECT DISTINCT stopb.name, a.company, a.num
+  FROM route AS a
+  JOIN route AS b ON (a.company = b.company
+                  AND a.num     = b.num)
+  JOIN stops AS stopa ON (a.stop = stopa.id)
+  JOIN stops AS stopb ON (b.stop = stopb.id)
+ WHERE a.company = 'LRT'
+   AND stopa.name = 'Craiglockhart'
 ```
 
 ---
 
 
 <!-- omit in toc -->
-### 9.
+### 10. Find the routes involving two buses that can go from _Craiglockhart_ to _Lochend_. Show the bus no. and company for the first bus, the name of the stop for the transfer, and the bus no. and company for the second bus
 
 ```SQL
-
+SELECT x.num, x.company, x.transfer_stop, y.num, y.company
+  FROM (
+    SELECT DISTINCT stopb.name AS transfer_stop, b.company, b.num
+      FROM route AS a
+      JOIN route AS b ON (a.company = b.company 
+                      AND a.num     = b.num)
+      JOIN stops stopa ON (a.stop = stopa.id)
+      JOIN stops stopb ON (b.stop = stopb.id)
+     WHERE stopa.name = 'Craiglockhart'
+  ) AS x
+  JOIN (
+    SELECT DISTINCT stopc.name AS transfer_stop, c.company, c.num
+      FROM route AS c
+      JOIN route AS d ON (c.company = d.company 
+                      AND c.num=d.num)
+      JOIN stops stopc ON (c.stop = stopc.id)
+      JOIN stops stopd ON (d.stop = stopd.id)
+     WHERE stopd.name = 'Lochend'
+  ) AS y ON (x.transfer_stop = y.transfer_stop)
+ ORDER BY x.num, x.transfer_stop, y.num
 ```
-
----
-
-
-<!-- omit in toc -->
-### 10.
-
-```SQL
-
-```
-
 
 <br />
 
