@@ -23,7 +23,7 @@ This file contains the solutions (SQL queries) to the tutorial's questions posed
 - [8+ NSS Tutorial (Numeric Examples) (last edited 01/08/2025)](#8-nss-tutorial-numeric-examples-last-edited-01082025)
 - [9- Window functions (last edited 02/08/2025)](#9--window-functions-last-edited-02082025)
 - [9+ Window LAG (COVID 19) (last edited 04/08/2025)](#9-window-lag-covid-19-last-edited-04082025)
-- [9 Self Join](#9-self-join)
+- [9 Self Join (last edited 05/08/2025)](#9-self-join-last-edited-05082025)
 
 
 

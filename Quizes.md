@@ -16,7 +16,7 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 - [6. JOIN Quiz (last edited 27/07/2025)](#6-join-quiz-last-edited-27072025)
 - [7. JOIN Quiz 2 (last edited 29/07/2025)](#7-join-quiz-2-last-edited-29072025)
 - [8. Using Null Quiz (last edited 30/07/2025)](#8-using-null-quiz-last-edited-30072025)
-- [9. Self JOIN Quiz](#9-self-join-quiz)
+- [9. Self JOIN Quiz (last edited 05/08/2025)](#9-self-join-quiz-last-edited-05082025)
 
 
 
@@ -656,31 +656,31 @@ SELECT name,
 
 
 
-## 9. Self JOIN Quiz
+## 9. Self JOIN Quiz (last edited 05/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Self_join_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the code that would show it is possible to get from Craiglockhart to Haymarket
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![alt text](assets/quiz_answers/Quiz9.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the code that shows the stops that are on route.num '2A' which can be reached with one bus from Haymarket
+
+![alt text](assets/quiz_answers/Quiz9.question2.png)
+
+---
 
 
+<!-- omit in toc -->
+### 3. Select the code that shows the services available from Tollcross
+
+![alt text](assets/quiz_answers/Quiz9.question3.png)
 
 
 <div align="right">
