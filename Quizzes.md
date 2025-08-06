@@ -9,7 +9,7 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 ## Table of Contents
 
 - [1. SELECT Quiz (last edited 01/08/2025)](#1-select-quiz-last-edited-01082025)
-- [2. BBC Quiz](#2-bbc-quiz)
+- [2. BBC Quiz (last edited 06/08/2025)](#2-bbc-quiz-last-edited-06082025)
 - [3. Nobel Quiz](#3-nobel-quiz)
 - [4. Nested SELECT Quiz](#4-nested-select-quiz)
 - [5. SUM and COUNT Quiz (last edited 22/07/2025)](#5-sum-and-count-quiz-last-edited-22072025)
@@ -107,63 +107,75 @@ SELECT name, area*2 FROM world WHERE population = 64000
 
 
 
-## 2. BBC Quiz
+## 2. BBC Quiz (last edited 06/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/BBC_QUIZ>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the code which gives the name of countries beginning with U
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q2q1](assets/quiz_answers/Quiz2.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the code which shows just the population of United Kingdom
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q2q2](assets/quiz_answers/Quiz2.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the answer which shows the problem with this SQL code - the intended result should be the continent of France
 
+```SQL
+SELECT continent
+  FROM world
+ WHERE 'name' = 'France'
+```
 
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q2q3](assets/quiz_answers/Quiz2.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from the following code
+
+![Q2q4](assets/quiz_answers/Quiz2.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Select the code which would reveal the name and population of countries in Europe and Asia
+
+![Q2q5](assets/quiz_answers/Quiz2.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the code which would give two rows
+
+![Q2q6](assets/quiz_answers/Quiz2.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Select the result that would be obtained from this code
+
+```SQL
+SELECT name FROM world
+ WHERE continent = 'South America'
+   AND population > 40000000
+```
+
+![Q2q7](assets/quiz_answers/Quiz2.question7.png)
 
 
 <div align="right">
