@@ -2926,7 +2926,7 @@ HAVING link_count = 2
 
 
 <!-- omit in toc -->
-### 5.
+### 5. Execute the self join shown and observe that b.stop gives all the places you can get to from Craiglockhart, without changing routes. Change the query so that it shows the services from Craiglockhart to London Road
 
 ```SQL
 SELECT a.company, a.num, a.stop, b.stop
