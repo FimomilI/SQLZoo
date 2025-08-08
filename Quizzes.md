@@ -378,7 +378,7 @@ Webpage: <https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz>.
 <!-- omit in toc -->
 ### 3. Select the list of core SQL aggregate functions
 
-![Q5q3](assets/quiz_answers/Quiz5.Question3.png)
+![Q5q3](assets/quiz_answers/Quiz5.question3.png)
 
 ---
 
@@ -453,7 +453,7 @@ Webpage: <https://sqlzoo.net/wiki/JOIN_Quiz>.
 <!-- omit in toc -->
 ### 1. You want to find the stadium where player 'Dimitris Salpingidis' scored. Select the JOIN condition to use
 
-![Q6q1](assets/quiz_answers/Quiz6.Question1.png)
+![Q6q1](assets/quiz_answers/Quiz6.question1.png)
 
 ---
 

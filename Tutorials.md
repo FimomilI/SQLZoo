@@ -36,7 +36,7 @@ Introducing the world table of countries
 
 <div id="header" align="center">
 
-  ![world_table](./assets/tutorial_databases_infographics/world_table.png)
+  ![world_table](./assets/tutorial_databases_infographics/World_Table.png)
 
 </div>
 
@@ -502,7 +502,7 @@ SELECT name
 Webpage: <https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial>.
 
 
-![nobel_table](assets/tutorial_databases_infographics/nobel_table.png)
+![nobel_table](assets/tutorial_databases_infographics/Nobel_Table.png)
 
 
 <!-- omit in toc -->
@@ -1252,11 +1252,11 @@ HAVING COUNT(winner) = 3
 
 Webpage: <https://sqlzoo.net/wiki/The_JOIN_operation>.
 
-UEFA EURO 2012 tables,
+UEFA EURO 2012 Database,
 
 <div id="header" align="center">
 
-  ![UEFA EURA 2012 tables](assets/tutorial_databases_infographics/UEFA_EURO_2012_tables.png)
+  ![UEFA EURA 2012 database](assets/tutorial_databases_infographics/UEFA_EURO_2012_Database.png)
 
 </div>
 
@@ -1494,7 +1494,7 @@ The Table Tennis Mens Doubles
 
 <div align="center">
 
-  ![Table Tennis Mens Doubles Database](assets/tutorial_databases_infographics/Table_Tennis_Mens_Doubles.png)
+  ![Table Tennis Mens Doubles Database](assets/tutorial_databases_infographics/Table_Tennis_Mens_Doubles_Database.png)
 
 </div>
 
@@ -2538,7 +2538,7 @@ Generlan Elections table
 
 <div align="center">
 
-  ![General Elections table](assets/tutorial_databases_infographics/General_Elections_table.png)
+  ![General Elections table](assets/tutorial_databases_infographics/General_Elections_Table.png)
 
 </div>
 
