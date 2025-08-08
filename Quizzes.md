@@ -10,7 +10,7 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 
 - [1. SELECT Quiz (last edited 01/08/2025)](#1-select-quiz-last-edited-01082025)
 - [2. BBC Quiz (last edited 06/08/2025)](#2-bbc-quiz-last-edited-06082025)
-- [3. Nobel Quiz](#3-nobel-quiz)
+- [3. Nobel Quiz (last edited 08/08/2025)](#3-nobel-quiz-last-edited-08082025)
 - [4. Nested SELECT Quiz](#4-nested-select-quiz)
 - [5. SUM and COUNT Quiz (last edited 22/07/2025)](#5-sum-and-count-quiz-last-edited-22072025)
 - [6. JOIN Quiz (last edited 27/07/2025)](#6-join-quiz-last-edited-27072025)
@@ -188,63 +188,70 @@ SELECT name FROM world
 
 
 
-## 3. Nobel Quiz
+## 3. Nobel Quiz (last edited 08/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Nobel_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Pick the code which shows the name of winner's names beginning with C and ending in n
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q3q1](assets/quiz_answers/Quiz3.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the code that shows how many Chemistry awards were given between 1950 and 1960
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q3q2](assets/quiz_answers/Quiz3.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Pick the code that shows the amount of years where no Medicine awards were given
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q3q3](assets/quiz_answers/Quiz3.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from the following code
+
+![Q3q4](assets/quiz_answers/Quiz3.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Select the code which would show the year when neither a Physics or Chemistry award was given
+
+![Q3q5](assets/quiz_answers/Quiz3.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the code which shows the years when a Medicine award was given but no Peace or Literature award was
+
+![Q3q6](assets/quiz_answers/Quiz3.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. Pick the result that would be obtained from the following code
+
+```SQL
+SELECT subject, COUNT(subject)
+  FROM nobel
+ WHERE yr = '1960'
+ GROUP BY subject
+```
+
+![Q3q7](assets/quiz_answers/Quiz3.question7.png)
 
 
 <div align="right">
