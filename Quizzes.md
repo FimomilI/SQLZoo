@@ -11,7 +11,7 @@ This file contains the solutions to the quiz's questions posed by <https://sqlzo
 - [1. SELECT Quiz (last edited 01/08/2025)](#1-select-quiz-last-edited-01082025)
 - [2. BBC Quiz (last edited 06/08/2025)](#2-bbc-quiz-last-edited-06082025)
 - [3. Nobel Quiz (last edited 08/08/2025)](#3-nobel-quiz-last-edited-08082025)
-- [4. Nested SELECT Quiz](#4-nested-select-quiz)
+- [4. Nested SELECT Quiz (last edited 08/08/2025)](#4-nested-select-quiz-last-edited-08082025)
 - [5. SUM and COUNT Quiz (last edited 22/07/2025)](#5-sum-and-count-quiz-last-edited-22072025)
 - [6. JOIN Quiz (last edited 27/07/2025)](#6-join-quiz-last-edited-27072025)
 - [7. JOIN Quiz 2 (last edited 29/07/2025)](#7-join-quiz-2-last-edited-29072025)
@@ -264,63 +264,84 @@ SELECT subject, COUNT(subject)
 
 
 
-## 4. Nested SELECT Quiz
+## 4. Nested SELECT Quiz (last edited 08/08/2025)
 
 Webpage: <https://sqlzoo.net/wiki/Nested_SELECT_Quiz>.
 
 
 <!-- omit in toc -->
-### 1.
+### 1. Select the code that shows the name, region and population of the smallest country in each region
 
-
-
----
-
-
-<!-- omit in toc -->
-### 2.
-
-
+![Q4q1](assets/quiz_answers/Quiz4.question1.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 3.
+### 2. Select the code that shows the countries belonging to regions with all populations over 50000
 
-
-
----
-
-
-<!-- omit in toc -->
-### 4.
-
-
+![Q4q2](assets/quiz_answers/Quiz4.question2.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 5.
+### 3. Select the code that shows the countries with a less than a third of the population of the countries around it
 
-
-
----
-
-
-<!-- omit in toc -->
-### 6.
-
-
+![Q4q3](assets/quiz_answers/Quiz4.question3.png)
 
 ---
 
 
 <!-- omit in toc -->
-### 7.
+### 4. Select the result that would be obtained from the following code
+
+```SQL
+SELECT name FROM bbc
+ WHERE population >
+       (SELECT population
+          FROM bbc
+         WHERE name = 'United Kingdom')
+   AND region IN
+       (SELECT region
+          FROM bbc
+         WHERE name = 'United Kingdom')
+```
+
+![Q4q4](assets/quiz_answers/Quiz4.question4.png)
+
+---
 
 
+<!-- omit in toc -->
+### 5. Select the code that would show the countries with a greater GDP than any country in Africa (some countries may have NULL gdp values)
+
+![Q4q5](assets/quiz_answers/Quiz4.question5.png)
+
+---
+
+
+<!-- omit in toc -->
+### 6. Select the code that shows the countries with population smaller than Russia but bigger than Denmark
+
+![Q4q6](assets/quiz_answers/Quiz4.question6.png)
+
+---
+
+
+<!-- omit in toc -->
+### 7. >Select the result that would be obtained from the following code
+
+```SQL
+SELECT name FROM bbc
+ WHERE population > ALL
+       (SELECT MAX(population)
+          FROM bbc
+         WHERE region = 'Europe')
+   AND region = 'South Asia'
+```
+
+![Q4q7](assets/quiz_answers/Quiz4.question7.png)
 
 
 <div align="right">
