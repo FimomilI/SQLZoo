@@ -34,7 +34,7 @@ Webpage: <https://sqlzoo.net/wiki/SELECT_basics>.
 
 Introducing the world table of countries
 
-<div id="header" align="center">
+<div align="center">
 
   ![world_table](./assets/tutorial_databases_infographics/World_Table.png)
 
@@ -1254,7 +1254,7 @@ Webpage: <https://sqlzoo.net/wiki/The_JOIN_operation>.
 
 UEFA EURO 2012 Database,
 
-<div id="header" align="center">
+<div align="center">
 
   ![UEFA EURA 2012 database](assets/tutorial_databases_infographics/UEFA_EURO_2012_Database.png)
 
